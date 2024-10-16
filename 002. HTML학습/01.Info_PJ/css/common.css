@@ -1,8 +1,14 @@
 @charset "utf-8";
+/* css 외부파일은 반드시 utf-8설정 필수! */
 /* info PJ 공통 CSS - common.css */
 
 /* css 인터널 코딩구역 */
+/* 웹폰트 import */
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Single+Day&display=swap");
 /*
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
            선택자{
            속성:값;
            }
@@ -69,7 +75,7 @@
   /* 글자체 */
   font-family: "Single Day", cursive;
   /* 글자색 */
-  color: darkcyan;
+  color: rgb(0, 94, 94);
   /* 글자밑줄없앰 tdn */
   text-decoration: none;
   /* 글자크기 fz */
@@ -77,11 +83,30 @@
   /* 글자두껍게 fwb */
   font-weight: bold;
 }
+/* 첫번째 a메뉴를 빼고 두번째부터
+      끝까지 양쪽마진 적용하기
+      주의) 인라인요소는 위아래 마진적용안됨! */
+.menu span + a {
+  /* 앞에 span형제요소가 있는 a만선택
+        +는 형제선택자 */
+  margin: 4px;
+}
+
+/* a요소에 마우스 오버시 */
+.menu span + a:hover {
+  /* 글자색 */
+  color: rgb(226, 13, 31);
+  /* 글자윗줄 tdo */
+  text-decoration: underline;
+  /* 글자데코 스타일 tdst */
+  text-decoration-style: wavy;
+}
 
 /* 3. 하단영역 */
 #info-area {
   /* 배경색 bgc */
   background-color: #e9e7e7;
+  font-size: 18px;
 }
 
 /* 최상위박스 공통 */
@@ -119,9 +144,9 @@
 /* 주소셋팅 */
 address {
   /* 글자체 */
-  font-family: "Do Hyeon", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   /* 글자크기 fz */
-  font-size: 16px;
+  font-size: 12px;
   /* 기본 이탤릭체 해제하기 */
   font-style: normal;
   /* 글자 중앙정렬 tac*/
