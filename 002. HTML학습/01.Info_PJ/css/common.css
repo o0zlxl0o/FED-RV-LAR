@@ -75,7 +75,7 @@
   /* 글자체 */
   font-family: "Single Day", cursive;
   /* 글자색 */
-  color: rgb(0, 94, 94);
+  color: rgb(0, 38, 94);
   /* 글자밑줄없앰 tdn */
   text-decoration: none;
   /* 글자크기 fz */
@@ -129,7 +129,7 @@
             */
   border: 1px dashed hsl(0, 0%, 81%);
   /* 둥근모서리 */
-  border-radius: 10px;
+  border-radius: 20px;
   /* 안쪽여백(패딩) */
   padding: 15px;
 }
@@ -151,5 +151,5 @@ address {
   font-style: normal;
   /* 글자 중앙정렬 tac*/
   text-align: center;
-  color: rgb(155, 155, 155);
+  color: rgb(129, 129, 129);
 }

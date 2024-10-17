@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/* 서브페이지 공통 CSS - sub.css */
+
+/* 2-1 서브타이틀 
+태그명+이름 방식의 선택자는 종속선택자 */
+h2.sub-title{
+    /* 글자 크기 font - size (fz)*/
+    font-size: 38px;
+    /* 글자 두께 : font weight (fw)
+    두껍게 bold(fwb)/ 보통 normal(fwm) */
+    font-weight: normal;
+    /* 텍스트 중앙정렬 : tac */
+    text-align: center;
+    /* 배경색 : bgc */
+    background-color: #ffa357;
+    color: aliceblue;
+    border-radius: 5px;
+}
+/* 2-2 언론사 로고 */
+/* 2-3 기사 제목 */
+/* 2-4 기사 사진 */
+/* 2-5 기사 내용 */
+/* 2-5.5 인용블록 영역 */
+/* 2-6 기자정보 */
+/* 2-7 기사원문 */
+/* 주해영역 */
+/* 오늘의 작품 & 느낌 */
