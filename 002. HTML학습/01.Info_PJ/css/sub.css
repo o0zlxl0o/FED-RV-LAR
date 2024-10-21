@@ -148,23 +148,158 @@ h2.tv {
 /* 2-4 기사 사진 */
 
 /* fugrue 요소 기본마진 없앰 */
-.article-picture{
-    margin: 0;
+.article-picture {
+  margin: 0;
 }
-.article-picture img{
-    width: 100%;
+/* 기사 이미지 */
+.article-picture img {
+  width: 100%;
+}
 
+/* 이미지 설명
+figcaption은 블록요소다!*/
+.article-picture figcaption {
+  /* 글자가운데 정렬 tac */
+  text-align: center;
+  /* 글자크기 15px: fz15 */
 }
+
+/* 하위 요소에 지정된 속성은 그 요소에서 재정의 해야 적용됨!
+예컨데 글자크기가 이미 small 태그에 적용되어 있어서 여기에 재정의 해야함! */
+.article-picture figcaption small {
+  font-size: 15px;
+}
+
 /* 2-5 기사 내용 */
+.contents p {
+  /* 기본 마진 없애고 아래쪽 마진만 줌 */
+  margin: 0px;
+  margin-bottom: 25px;
 
-/*  */
-.contents p{
-font-size: 18px;
-line-height: 1.8;
+  font-size: 20px;
+  line-height: 1.6;
+  /* 
+[줄간격 : line-height]
+- 박스 요소의 글자의 간격 높이를 지정하는 속성
+- 글자는 높이값의 세로 정중앙에 위치함
+- 단위를 사용하면 특정 크기로 저장됨
+- 단위없는 숫자로 표현하면 글자 크기의 배수로 상대적 크기가 적용됨
+- 젠코딩시 숫자만쓰면 배수로 표현되므로 주의 요망!! 예) lh20 -> line-height: 20;
+*/
+  color: #303038;
+}
+
+/* 중요글자 strong */
+.contents p strong {
+  color: #0e008b;
+}
+
+/* 강조글자 em */
+.contents p em {
+  /* 글자색 c */
+  color: rgb(0, 134, 175);
+  /* 글자 그림자 : cs */
+  text-shadow: 1px 1px 1px #0400ff;
+  /* 글자 윗줄 overline : tdo
+     글자 아랫줄 underline : tdu */
+  text-decoration: underline wavy;
+  /* text-decoration: 유형(스타일)
+  스타일이 있을 경우 뒤에 씌어스기로 쓸 수 있음 */
+}
+
+/* 공통 보더박스 디자인(.bd-box) */
+.bd-box {
+  /* 위쪽보더주기 : bdt */
+  border-top: 1px dashed #9e9e9e;
+  /* 윗쪽마진 :ㅖ mt */
+  margin-top: 20px;
+}
+/* 타이틀 */
+.bd-box h4 {
+  /* 가로크기 내용만큼 설정위해 display변경!
+  -> inline : di (패딩 디자인이 실제 공간을 차지하지 않음)
+  display: inline;
+  -> inline-block(블록처럼 디자인 적용되는 인라인 요소)*/
+  display: inline-block;
+  /* 배경색 : bgc*/
+  background-color: #f3f3f3;
+  /* 패딩 : p */
+  padding: 15px;
+  /* 둥근 모서리 : brad */
+  border-radius: 15px;
+  /* 박스 그림자 : bxh */
+  box-shadow: inset 0 0 10px #b4b4b4;
 }
 
 /* 2-5.5 인용블록 영역 */
+/* 인용구 박스 : blockquote */
+.quote-box blockquote {
+  /* 기본마진 없앰 : m */
+  margin: 0;
+  /* 글자크기 : fz */
+  font-size: 20px;
+  /* 줄간격 : lh */
+  line-height: 1.8;
+  /* 양쪽정렬 justify : taj */
+  text-align: justify;
+  /* 양쪽 정렬시 영어단어 깨서 중앙 공백 없애기(wbb) */
+  word-break: break-all;
+  /* 첫줄 들여쓰기 : ti */
+  text-indent: 15px;
+}
+
+/* 이미지 오른쪽으로 보내서 옆에 글자 흘러가기 */
+.quote-box blockquote img {
+  /* 나는 오른쪽에 있고(글자는 왼쪽에 흘러감)
+  float:right(flr) */
+  float: right;
+  /* 왼쪽마진 : ml (이미지왼쪽에 글자에 간격줌) */
+  margin-left: 10px;
+  /* 마진탑으로 이미지 위치를 이동함 : mt */
+  margin-top: 20px;
+  /* 둥근 모서리 : brs */
+  border-radius: 10px;
+}
+
 /* 2-6 기자정보 */
+
 /* 2-7 기사원문 */
+.article-link {
+  /* 오른쪽 정렬 */
+  text-align: right;
+}
+/* 자식요소 a는 인라인이므로 크기 적용안됨
+따라서 디자인 적용되는 인라인 요소인 inline-block를 사용한다! */
+.article-link a {
+  /* 정원은 둥근모서리값 50% */
+  border-radius: 50%;
+  /* 배경색 bgc */
+  background-color: lightcyan;
+  /* 글자색 c */
+  color: darkcyan;
+  /* 글자크기 */
+  font-size: 20px;
+  /* 두꺼운 글자 fwb */
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  /* 가로중앙정렬 */
+  text-align: center;
+  /* 세로중앙정렬 */
+  /* text-align: middle;->인라인 요소간 세로정렬
+  ->세로 중앙정렬은 table-cell 디스플레이에서만
+  적용됨. 여기서는 line-height를 높이값과 같이 줌! */
+  line-height: 100px;
+  border: 2px solid rgb(163, 221, 255);
+
+  /* a요소 기본 디자인 변경 */
+  /* 밑줄없앰 : tdn */
+  text-decoration: none;
+}
+/* 기사원문 오버시 변경 */
+.article-link a:hover{
+  background-color: #c5ffc8;
+}
 /* 주해영역 */
 /* 오늘의 작품 & 느낌 */
