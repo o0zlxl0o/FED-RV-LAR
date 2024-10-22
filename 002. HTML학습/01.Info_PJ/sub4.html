@@ -257,7 +257,8 @@
         <a
           href="https://n.news.naver.com/mnews/hotissue/article/081/0003484894?type=series&cid=1064685"
           target="_blank"
-          >기사원문</a>
+          >기사원문</a
+        >
       </div>
       <!-- hr 요소 : horizontal line 수평선
        보통 CSS디자인 요소로 사용하지 않음! -->
@@ -284,13 +285,157 @@
             src="./images/img_the_scream.jpg"
             alt="뭉크의 절규"
           />
-          <figure>뭉크의 &lt;절규&gt;</figure>
+          <figcaption>
+            뭉크의 <cite>&lt;절규&gt;</cite>
+          </figcaption>
         </figure>
       </article>
+
+      <!-- 
+          [ 순서없는 리스트 : ul ]
+          unordered list
+
+          (참고: 블릿옵션
+          https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ul_type_css)
+
+          [ 순서있는 리스트 : ol ]
+          ordered list
+
+          (참고: 순서표시옵션
+          https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ol_type_all_css)
+
+          [ ul/ol 공통사항 ]
+          - 하위필수요소 : li (개별리스트)
+          - 주의 : 하위에 li 이외의 블록요소나 
+          그 어떤 요소도 직계자식으로 사용할 수 없다!
+          예) <ul><li></li><div></div></ul> -> 사용불가!
+
+         -->
+
+      <!-- 주요 뉴스 : ul -->
+      <article class="main-news news-box">
+        <h3>주요뉴스</h3>
+        <ul>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/081/0003489103" target="_blank"
+              >“조현병 환자 X소리” 막말 퍼붓다…의협회장 탄핵
+              위기</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/081/0003489102"
+              target="_blank"
+              >“대통령이 국가 속였다”…징역 20년 선고한 ‘이
+              나라’</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/081/0003489077" target="_blank"
+              >“비자 면제해줬더니 불법체류”…제주서 중국인
+              1만명이나</a
+            >
+          </li>
+        </ul>
+      </article>
+      <!-- 랭킹뉴스 : Ol -->
+      <article class="main-news news-box">
+        <h3>랭킹뉴스</h3>
+        <ol>
+            <li>
+              <a
+                href="https://n.news.naver.com/article/081/0003489083?ntype=RANKING" target="_blank"
+                >한동훈, 尹 면담 뒤 첫 입장…“오직 국민만 보고 피하지 않겠다”</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://n.news.naver.com/article/081/0003489026?ntype=RANKING"
+                target="_blank"
+                >명태균, 김건희 여사와 나눈 대화 또 공개…이번엔 텔레그램</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://n.news.naver.com/article/081/0003489040?ntype=RANKING" target="_blank"
+                >목사가 미성년자를 강제로…하나님 이름 팔아 인신매매죄, 필리핀서 종신형</a
+              >
+            </li>
+        </ol>
+      </article>
+
+      <!-- 
+          [ 용어정의리스트 : dl ]
+          
+          dl > dt + dd
+          __________________
+
+          dl : 용어 리스트
+          (defines the description list)
+          dt : 용어정의
+          (defines the term)
+          dd : 용어설명
+          (description each term)
+          ________________________
+          주의 - dl은 반드시 자식요소로 dt와 dd가
+          반드시 한번이상 사용되어야 함!!!
+          또 주의 - dt와 dd는 형제관계임!(자식아님!)
+          -->
+
       <!-- [HTML요소에서 특수문자 처리]
        & 엔퍼센트 &amp;
        < 여는 꺽쇠 &lt; (li는 less than ~ 보다 작은)
        > 닫는 꺽쇠 &gt; (gt는 greater than ~ 보다 작은)-->
+
+      <!-- 분야별 뉴스 : dl-->
+       <article class="sec-news news-box">
+        <h3>분야별 뉴스</h3>
+        <dl>
+          <!-- 경제 파트 -->
+           <dt>경제</dt>
+           <dd>
+            <a href="https://n.news.naver.com/article/081/0003489091?sid=101" target="_blank">높아지는 트럼프 지지율 따라 되살아난 ‘트럼프 트레이드’</a>
+           </dd>
+           <dd>
+            <a href="https://n.news.naver.com/article/081/0003489055?sid=101" target="_blank">헤펠레코리아, ‘제20회 가구리빙디자인 공모전 수상작 특별전’… 브랜드 쇼룸에서 관람 가능</a>
+           </dd>
+           <dd>
+            <a href="https://n.news.naver.com/article/081/0003489046?sid=101" target="_blank">청년 로컬 창작자의 첫걸음 : 로컬 파이오니어 위크 2024 개최</a>
+           </dd>
+          </dl>
+          <dl>
+           <!-- 사회 파트 -->
+           <dt>사회</dt>
+           <dd>
+            <a href="https://n.news.naver.com/article/081/0003489116?sid=102" target="_blank">‘테이저건 사망사건’ 사용연한 초과장비 사용 ‘도마’</a>
+           </dd>
+           <dd>
+            <a href="https://n.news.naver.com/article/081/0003489115?sid=102" target="_blank">여수시, 석유화학산업 위기 극복 총력’</a>
+           </dd>
+           <dd>
+            <a href="https://n.news.naver.com/article/081/0003489114?sid=102" target="_blank">대형 재난 불시 터져도 중랑구 대응 일사불란</a>
+           </dd>
+          </dl>
+          <dl>
+           <!-- TV/연예 파트 -->
+           <dt>TV/연예</dt>
+           <dd>
+            <a href="https://m.entertain.naver.com/article/108/0003275782" target="_blank">"40시간 날아가"..'아마존 활명수' 류승룡X진선규, 웃음·감동 제대로 쐈다 [종합]</a>
+           </dd>
+           <dd>
+            <a href="https://m.entertain.naver.com/article/241/0003389139" target="_blank">“마지막 앨범 될 수도”…조용필, 당신은 이미 나이와 시대를 초월하셨습니다 [종합]</a>
+           </dd>
+           <dd>
+            <a href="https://m.entertain.naver.com/article/241/0003389090" target="_blank">[단독] ‘나는솔로’ 남규홍 PD, 잠적 논란→국감 불출석…작가 불공정 계약 과태료 [종합]</a>
+           </dd>
+          </dl>
+       </article>
+
+
+
+
     </main>
     <!--<div id="main"></div>  -->
 
@@ -299,8 +444,8 @@
     <footer id="info-area" class="part">
       <address>
         서울시 강남구 역삼동 119 대호B 8F<br />
-        대표: Lee A Ram<br />
-        전화:010-1111-2222
+        대표 : Lee A Ram<br />
+        전화 : 010-1111-2222
       </address>
     </footer>
     <!--<div id="footer"></div> -->
