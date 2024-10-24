@@ -84,7 +84,8 @@ h2.sub-title {
  모두 다중 그림자 적용 가능함
  */
   box-shadow: 
- /* 내부그림자 */ inset 0 0 10px #09005e,
+ /* 내부그림자 */ inset 0 0 10px
+      #09005e,
     /* 바깥쪽 그림자 */ 0 0 15px 3px #ff9d6f;
 
   /* 글자 크기 font - size (fz)*/
@@ -598,13 +599,34 @@ display변경 inline-block
   margin-top: 20px;
 }
 
+/* 타이틀 */
+.pnews h3{
+  /* 배경그라데이션 없앰 */
+  background-image: none;
+  /* 중앙정렬 */
+  text-align: center;
+}
+
+/* 가상요소로 사진기 아이콘 넣기 */
+.pnews h3::before{
+  content: '📷';
+  vertical-align: -1px;
+  font-size: 31px;
+  margin-right: 8px;
+}
+.pnews h3::after{
+  content: '📺';
+  vertical-align: -1px;
+  font-size: 31px;
+  margin-left: 8px;
+}
 
 /* 사진뉴스 테이블 */
-.photo-news table{
+.photo-news table {
   /* 최대가로크기설정 : maw
   최대크기보다 작아지면 auto로 전환! */
   max-width: 500;
-  
+
   /* 테이블 기본간격 없앰!(정확한 수치화를 위해) bdc */
   border-collapse: collapse;
   /* separate가 기본값임(사이간격있음)
@@ -616,10 +638,10 @@ display변경 inline-block
   /* 테이블 중앙정렬 - 마영오!
   블록요소, 테이블요소 모두 적용공통 */
   margin: 0 auto;
-  }
+}
 
-  /* 첫번째 td : 숫자데이터 부분 */
-.photo-news td:first-child{
+/* 첫번째 td : 숫자데이터 부분 */
+.photo-news td:first-child {
   /* 가로크기: w */
   width: 50px;
   /* 세로크기 : h */
@@ -633,7 +655,7 @@ display변경 inline-block
 }
 
 /* 두번째 td : 기사 제목 링크 부분 */
-.photo-news td:nth-child(2){
+.photo-news td:nth-child(2) {
   /* 배경색 : bgc */
   background-color: #f3efe4;
   /* 패딩 : p */
@@ -641,32 +663,90 @@ display변경 inline-block
 }
 
 /* 세번째 td : 사진 링크 부분 */
-.photo-news td:last-child{
+.photo-news td:last-child {
   /* 배경색 : bgc */
   background-color: #fcdbdb;
-
 }
 
-
-
 /* 사진뉴스 a요소 셋팅 */
-.photo-news a{
+.photo-news a {
   /* 줄바꿈 방지 설정 해제 :whn
   -> 줄바꿈방지 설정일 경우
   테이블 td에서 크기가 글내용만큼
   밀려서 나오기때문에 기본 줄바꿈으로 설정함! */
   white-space: normal;
+
+  /* 줄 간격조정 */
+  line-height: 1.5;
+
+  /* 여러줄일때 말줄임 설정하기 */
+  /* 1. 여러줄 말줄임 시 필요한 디스플레이 */
+  display: -webkit-box;
+  /* 2. 넘치는 요소 숨기기 */
+  overflow: hidden;
+  /* 3. 텍스트 말줄임표시 */
+  text-overflow: ellipsis;
+  /* 4. 말줄임 처리 줄 수 : 여기선 두줄처리 */
+  -webkit-line-clamp: 2;
+  /* 5. 말줄임 처리 방향설정 : 수직방향(vertical) */
+  -webkit-box-orient: vertical;
+  /* 6. 높이값 제한 설정(숨겨야 하니까) 
+  ★ 필요 시 사용*/
+  /* max-height: 2.5em; */
+  /* 7. 줄바꿈방지를 일반으로 변경(줄바꿈상태) */
+  /* white-space: normal; -> 위에서 이미 줌*/
 }
 
-/* 사진뉴스 이미지 */
-.photo-news img{
+/* 
+[ CSS 속성이나 값에 벤더사 접두어]
+ - 브라우저 제작사별로 특정 속성을
+ 지원할 경우 특정 버전부터 지원하게되고
+ 그때 브라우저사 접두어를 사용함!
+ 1. -webket- : 크롬, 사파리
+ 2. -sm- : 익스플로러/엣지
+ 3. -o- : 오페라
+ 4. -moz- : (모질라)파이어폭스
+ */
 
+/* 사진뉴스 이미지 */
+.photo-news img {
   width: 100px;
   height: 70px;
   vertical-align: middle;
 }
 
 /* 사이 구분선 넣기 : 두번째 tr부터 */
-.photo-news tr+tr td{
+.photo-news tr + tr td {
   border-top: 1px solid #e99a9a;
+}
+
+/* **********  */
+
+/* 비디오 박스 : .mv0-box */
+.mv-box iframe {
+  width: 100%;
+  height: 392px;
+}
+
+/* mark 태그 디자인 변경 */
+
+.contents mark {
+  background-color: rgb(236, 236, 236);
+  line-height: 1.4;
+  color: #b4982a;
+  font-size: 15px;
+  font-family: "Do Hyeon";
+  box-sizing: border-box;
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  padding: 15px 26px;
+  border-bottom: 2px solid #d8d1b2;
+  border-top: 2px solid #e9e4d0;
+}
+
+/* em 요소 디자인 변경 */
+.contents strong {
+  font-family: "Pretendard";
+  font-weight: 500;
 }
