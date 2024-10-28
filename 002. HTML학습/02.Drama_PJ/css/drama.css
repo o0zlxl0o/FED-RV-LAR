@@ -1,0 +1,160 @@
+@charset "utf-8";
+/* 드라마 테이블 CSS - drama.css */
+
+/* 기본 초기화 : 마진, 패딩 초기화 */
+html,
+body,
+h1,
+h2,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* 블릿표시자 초기화 : ul,ol(1,2~) */
+ul,
+ol {
+  /* 리스트 스타일 없앰 : lin */
+  list-style: none;
+}
+
+/* 전체 제목 */
+h1.tit {
+  /* 글자 중앙정렬 tac */
+  text-align: center;
+  /* 패딩 : p */
+  padding: 20px;
+}
+
+/* 드라마 제목 */
+h2.tit {
+  /* 두꺼운 글씨 해제 : fwn*/
+  font-weight: normal;
+  /* 글자크기 : fz */
+  font-size: 20px;
+  /* 하단 마진 : mb */
+  margin-bottom: 10px;
+}
+
+/* ul의 li를 옆으로 흐르게하기 */
+.drama ul > li {
+  /* 직계자식 li를 선택해야 하위의 ol>li까지 선택되지 않는다! */
+  /* 블록플롯 셋팅 */
+  float: left;
+  /* 나는 왼쪽에 너는 오른쪽으로 올라와서 흘러가 */
+
+  /* 패딩 */
+  padding: 9px;
+}
+
+/* 자식 블록플롯때문에 부모가 망가지는걸 막아주는 가상요소 클리어 장치 */
+.drama ul::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 테이블 셋팅 */
+/* 클래스명 앞에 태그명을 같이 붙여서 사용하면 "종속 선택자"라고 한다!
+해당태그일때만 그 클래스명이 적용되도록 태그명에 종속되어 있음! */
+table.drama {
+  /* 최대 가로크기 : maw */
+  max-width: 670px;
+  /* 마영오! 박스 중앙 정렬 */
+  margin: 0 auto;
+  /* 패딩 : p */
+  padding: 15px;
+  /* 박스 테두리 */
+  border: 1px solid #e9e9ec;
+  /* 둥근 모서리 */
+  border-radius: 10px;
+}
+
+/* 드라마 별 묶음 요소 .drama > ul */
+.drama ul {
+  /* 패딩 : p */
+  padding: 15px;
+  /* 박스 테두리 */
+  border: 1px solid #e9e9ec;
+  /* 둥근 모서리 */
+  border-radius: 10px;
+  /* 전체 글자 */
+  font-size: 15px;
+}
+
+/* 드라마 이미지 */
+.drama img {
+  border: 1px solid #e9e9ec;
+  /* 가로크기 설정(높이값은 비율에 맞게 자동!) :  w75 */
+  width: 75px;
+  /* 둥근 모서리 */
+  border-radius: 10px;
+}
+
+/* 추가정보 파트 */
+.info-txt {
+  color: #939396;
+}
+.num-txt {
+  color: #fc4c4e;
+}
+/* 숫자부분(데이터DB에서 숫자넣는 구분요소) */
+.num-txt em {
+  /* 기본 이탤릭 해제 : fsn */
+  font-style: normal;
+}
+
+/* 글자정보 링크 */
+.drama ol a {
+  /* a요소 기본셋팅 변경 : 글자색, 밑줄 */
+  color: #0c43b7;
+  /* tdn */
+  text-decoration: none;
+}
+.drama ol a:hover {
+  /* 밑줄 : fdu */
+  text-decoration: underline;
+}
+
+.drama .subscribe {
+  display: inline-block;
+  /* display변경 이유 : 마진탑적용과 패딩을 실제로 위아래쪽 밀기위해 */
+  margin-top: 10px;
+  padding: 7px;
+
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #e9e9ec;
+  border-radius: 10px;
+}
+
+/* 오버시 없앰 */
+.drama .subscribe:hover {
+  /* tdn */
+  text-decoration: none;
+}
+
+.drama .subscribe::after {
+}
+
+/* +기호 */
+.subscribe span {
+  color: #ff00bf;
+}
+/* 구독자수 */
+.subscribe b {
+  /* 두꺼운 글씨 해제 : fwn*/
+  font-weight: normal;
+  color: #939396;
+  font-size: 12px;
+}
+/* 하트기호 */
+.subscribe i {
+  /* 기본 이탤릭 해제 : fsn */
+  font-style: normal;
+  color: #ff0000;
+  /* 인라인 요소의 앞,뒤 마진 패딩은 적용됨! */
+  margin-left: 20px;
+}
