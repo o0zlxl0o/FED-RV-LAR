@@ -1,0 +1,17 @@
+@charset "uft-8";
+/* 로봇 pj css - robot.css */
+
+
+/* 초기화 */
+html,body{
+    margin: 0;
+    padding: 0;
+    /* 보이는 화면만큼 높이값 셋팅(가로는 비율에 맞게) */
+    height: 100%;
+}
+
+body {
+  /* 색이반고윙크 */
+  background: url(../images/bg.jpg) no-repeat
+    top/cover;
+}

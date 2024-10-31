@@ -26,7 +26,7 @@
 
         /******************************************************* 
 순서대로 위치(자리를 지킴(자리를 차지함), 그자리 왔다갔다)
-static < relative < absolute
+static < absolute < relative  
 위치값(z-index)만 주면 absolute가 위로 올라감
 
           [2. relative position]
@@ -73,7 +73,13 @@ static < relative < absolute
              3) z-index 속성으로 숫자가 크면 위!
                 (주의 : 숫자비교는 같은 레벨에서 함!)
 
-          9. 부모자격
+          9. 부모자격 ★★★★★
+            - 자식요소가 앱솔루트일때 부모자격으로 relative를
+              주는 경우가 많다! 왜? 기존 다자인이 그대로 유지되니까!
+              static한 특징이 있는 relative를 부모자격으로
+              설정하는 경우가 많은 것이다.
+              실제로 부모자격은 static이 아닌 포지션
+              즉, relative, absolute, fixed, sticky 다!
 
             _______________________________________________
 
@@ -109,7 +115,7 @@ static < relative < absolute
                     top, bottom, left, right
         
         *******************************************************/
-       
+
         background: url(./images/ab5.jpg)
           no-repeat center/cover;
       }
@@ -151,9 +157,41 @@ static < relative < absolute
       #s2 {
         background-color: lightcoral;
       }
+
+      /* 제목넣기 : 렐러루트로! */
+      h1.tit {
+        /* 포지션 */
+        position: relative;
+        top: 50px;
+        left: 30%;
+        /* 나의 부모는? 보이는 화면 window */
+        /* 겹쳐질때 가장위로 하기 z-index(남발ㄴㄴ) : z999 */
+        z-index: 999;
+
+        /* 박스모델 */
+        width: 40%;
+        /* tac */
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        border: 10px solid #ffad87;
+        border-radius: 20px;
+        background-color: #fff4e3;
+
+        /* 박스 그림자 : bxsh */
+        box-shadow: 3px 3px 5px
+          rgba(255, 102, 102, 0.712);
+
+        /* 글자모델 */
+        font-size: 60px;
+        color: #ff5100;
+      }
     </style>
   </head>
   <body>
+    <!-- 제목 -->
+    <h1 class="tit">Absolute 포지션</h1>
+
     <div class="bx" id="r1">r1</div>
     <div class="bx" id="s1">s1</div>
     <div class="bx" id="r2">r2</div>
