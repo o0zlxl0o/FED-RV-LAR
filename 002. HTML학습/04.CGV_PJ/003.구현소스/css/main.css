@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+/* CGV PJ 메인페이지 CSS - main.css */
+
+/* 외부 css 불러오기 */
+/* 리셋 CSS */
+@import url(./reset.css);
+
+/* 공통CSS */
+@import url(./core.css);
+
+/* 전체 디자인 */
+body {
+  background-color: #000;
+}
+
+/* 공사중 표시 : 구현시 박스표시 */
+/* *별표시는 모든 요소를 선택함 */
+body * {
+  /* 아웃라인은 아무런 영향이 없음 : ol */
+  outline: 2px dashed #ccc;
+}
+
+/******************** 1. 상단영역 ********************/
+.top-area {
+  height: 80px;
+  /* 배경 이미지 : 색이반고윙크 */
+  background: url(../images/curtain.jpg) repeat-x;
+}
+/******************** 2. 메인영역 ********************/
+.main-area {
+  position: relative;
+  /* 부모자격 - .screen */
+  height: 788px;
+  /* 배경 이미지 */
+  background: url(../images/bg.jpg) no-repeat
+    center/cover;
+}
+/* 2-1 스크린 */
+.screen {
+  /* 앱솔루트 포지션 : poa */
+  position: absolute;
+  top: 136px;
+  left: 256px;
+  /* 나의 부모는? .main-area */
+  width: 701px;
+  height: 397px;
+  /* 기본 배경색 검정 */
+  background-color: #000000;
+}
+/* 유튜브 아이프레임 */
+.screen iframe#ifr {
+  width: 100%;
+  height: 100%;
+  /* 기본 보더 없앰 : bdn */
+  border: none;
+}
+
+/* 2-2 포스터 메뉴 */
+.poster-menu {
+  /* poa */
+  position: absolute;
+  bottom: 40px;
+  left: 226px;
+  /* 나의 부모는? .main-area */
+}
+
+/* 메뉴 리스트 ul>li 상위li만 선택 */
+.poster-menu ul > li {
+  /* 렐러티브 포지션 : 부모자격(.mv-info) */
+  position: relative;
+  /* 부모자격에서 넘치는 자식요소 숨기기 설정 oh*/
+  overflow: hidden;
+  /* 블록 옆으로 흐르게 : fll */
+  float: left;
+}
+
+/*ul>li 사이간격
+li+li 앞에 li가 있는 li선택
+즉, 첫번째 li빼고 다 선택*/
+.poster-menu ul > li + li {
+  /* 왼쪽마진 : ml */
+  margin-left: 10px;
+}
+
+아마존 활명수
+아마존 활명수
+류승룡, 진선규
+코미디
+베놈
+베놈: 라스트 댄스
+톰 하디
+액션, SF, 스릴러
+데드라인
+데드라인
+공승연
+드라마
+글레디에이터2
+글래디에이터2
+폴 메스칼
+액션, 사극
+4분 44초
+4분 44초
+유지애
+공포(호러)
+청설
+청설
+홍경, 노윤서
+드라마, 멜로
+
+/* 포스터 이미지 */
+.poster-menu img {
+  height: 170px;
+}
+
+/* 영화정보박스 */
+.mv-info {
+  position: absolute;
+  /* 처음에 높이값 만큼 아래쪽에 밀려나있음! */
+  top: 100%;
+  left: 0;
+  /* 나의 부모는? .poster-menu ul>li */
+  width: 100%;
+  height: 100%;
+  /* 배경색 반투명 */
+  background-color: rgb(0 0 0 / 64%);
+  /* 글자중앙 tac */
+  text-align: center;
+  /* 줄간격 : lh*/
+  line-height: 2;
+  /* 패딩탑 : pt35 */
+  padding-top: 36px;
+  /* 패딩, 보더 크기포함박스 : bxb */
+  box-sizing: border-box;
+  /* 글자체 */
+  font-family: "Cute Font", cursive;
+  /* 글자크기 */
+  font-size: 20px;
+
+/* 트랜지션 : trs 속시이지 */
+transition: .3s ease-out;
+}
+
+/* 상위 ul>li 오버시 영화정보 보이기*/
+.poster-menu ul>li:hover .mv-info{
+    top: 0;
+    /* 값이 100% -> 0으로 변경됨! */
+}
+
+
+/* 첫번째 제목만 큰글자 만들기 */
+.mv-info ol li:first-child {
+  /* 글자크기 : fz*/
+  font-size: 18px;
+  /* 글자 두껍게 : fwb */
+  /* font-weight: bold; */
+  /* 글자색 : c */
+  color: rgb(187, 153, 0);
+}
+
+
+/******************** 3. 하단영역 ********************/
+.footer-area {
+  height: 100px;
+}
