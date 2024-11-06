@@ -10,7 +10,7 @@
     - 애니메이션 및 트랜지션 사용
 3. Accessibility
     - 컨텐츠 접근성
-4. WPO (Web performance Optimization)
+4. WPO (Web Performance Optimization)
     - 웹 최적화 (로딩속도)
 5. Responsive Design
     - 반응형웹 디자인 적용
@@ -35,3 +35,10 @@ https://orkenworld.com/
 (3) 가로 스크롤 이동기능
 (4) 글자 단어별 스크롤 올라올때 등장하기
 
+3. 신발 사이트
+https://p448.com/
+- 전체 구성 및 디자인 좋음!
+
+4. 애니 제작사
+https://thelinestudio.com/
+- 트랜스폼 애니 디자인 아주 훌륭!!!
