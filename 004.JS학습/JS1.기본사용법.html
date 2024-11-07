@@ -308,7 +308,6 @@
       }
       body {
         overflow: hidden;
-        background: linear-gradient(70deg, #ff81f4, yellow, lightblue);
       }
 
       .pbox {
@@ -361,20 +360,22 @@
       /* 원모양 개별셋팅 */
       .원이야:nth-child(1) {
         right: 400px;
-        background-image: url(./images/01.png);
+        background-image: url(./images/apt1.jpg);
       }
       .원이야:nth-child(2) {
         right: 200px;
-        background-image: url(./images/02.png);
+        background-image: url(./images/apt2.jpg);
       }
       .원이야:nth-child(3) {
-        background-image: url(./images/03.png);
+        background-image: url(./images/apt3.jpg);
+        background-position: center;
       }
 
       /* .원이야.on 일 경우 애니적용하기! */
       .원이야.on {
         /* 애니메이션 키프레임 호출은 animation속성으로! */
-        animation: rotate-ani 5s linear infinite;
+        animation: rotate-ani 5s linear
+          infinite;
         /* animation: 키프레임이름 시간 가속도 반복횟수; */
       }
       /* .원이야 회전 키프레임
@@ -385,6 +386,7 @@
           transform: rotate(360deg);
         }
       }
+
 
       /* 전체 사각형으로 변할 원 */
       .넌뭐냐 {
@@ -408,8 +410,8 @@
     <!-- 이벤트 속성 : on이벤트명="값"
       이벤트속성값 영역은 보통 문자열이 아니고
       JS코딩구역이다! -->
-      <!-- 윈도우키+.=이모지 -->
-      <p
+    <!-- 윈도우키+.=이모지 -->
+    <p
       class="pbox"
       title="클릭하시면 김비서가 나옵니다~!"
       onmousemove=""
@@ -430,6 +432,28 @@
       나는 요즘 매일 생각한다.<br />
       도대체 <span id="name"></span>
     </p>
+
+    <!-- 원모양 박스 -->
+    <div class="박스야">
+      <div
+        class="원이야 on"
+        onclick="맘대로해라(0,'로제')"
+      ></div>
+      <div
+        class="원이야 on"
+        onclick="맘대로해라(1,'브루노 마스')"
+      ></div>
+      <div
+        class="원이야 on"
+        onclick="맘대로해라(2,'아파트 밴드')"
+      ></div>
+    </div>
+
+    <!-- 사각형으로 변할 전체 마무리 원박스 -->
+     <div class="넌뭐냐" title="더블클릭해주세요!"
+     ondblclick="사각사각()"></div>
+     
+
     <!-- <div class="pbox"></div>
     <div class="pbox"></div>
     <div class="pbox"></div> -->
