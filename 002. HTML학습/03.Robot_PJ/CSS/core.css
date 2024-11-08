@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/* robot pj css - core.css */
+
+/*********** 1. 웹폰트 : CDN ***********/
+/* Cute Font, Jua, Audiowide 체 */
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Black+Ops+One&family=Chakra+Petch&family=Orbitron:wght@500&display=swap");
+
+/* 
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+*/
+
+/************ 2. 공통 클래스 ************/
+
+/* ctrl+shft+k = 라인삭제 */
+
+/* 메탈배경 클래스 */
+.metal1{
+  background: url(../images/metal01.jpg) no-repeat center/cover;
+}
+.metal2{
+  background: url(../images/metal02.jpg) no-repeat center/cover;
+}

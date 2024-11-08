@@ -1,24 +1,31 @@
 @charset "uft-8";
-/* 로봇 pj css - robot.css */
+/* robot pj css - robot.css */
+
+/* 외부css 합치기 */
+@import url(./core.css);
+@import url(./reset.css);
 
 /* 초기화 */
 html,
 body {
-  margin: 0;
-  padding: 0;
   /* 보이는 화면만큼 높이값 셋팅(가로는 비율에 맞게) */
   height: 100%;
 }
 
 /* 공사중 표시 */
-body * {
+body *,
+*::before,
+*::after{
   outline: 2px dashed yellow;
 }
 
 body {
-  /* 색이반고윙크 */
+  /* 색이반고(고정:fixed)윙크 */
   background: url(../images/bg.jpg) no-repeat
-    top/cover;
+    fixed top/cover;
+
+  /* 커서 이미지로 변경하기 */
+  cursor: url(../images/favicon.png), auto;
 }
 
 /***************************** 1. 상단영역 *****************************/
@@ -26,33 +33,45 @@ body {
 /***************************** 2. 메인영역 *****************************/
 /* 2-1. 로봇박스 */
 .robot-box {
+  /* 위,아래 패딩으로 공간확보 */
   padding-top: 100px;
+  padding-bottom: 700px;
 }
 /* 2-1-1. 로봇머리 */
 .head {
   /* 부모자격 relative(por) : 자식요소 앱솔루트 */
   position: relative;
+  /* 몸통보다위 */
+  z-index: 1;
   /* 중앙정렬박스 : 마.영.오 */
   margin: 0 auto;
   /* margin-top: 250px; */
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 245px;
+  /* 얼굴모양 만들기 */
+  border-radius: 30px 30px 150px 150px;
 }
 
-/******** 공통클래스 ********/
-/* 메탈배경 클래스 */
-.metal1{
-  background: url(../images/metal01.jpg) no-repeat center/cover;
-}
-.metal2{
-  background: url(../images/metal02.jpg) no-repeat center/cover;
+/* 머리카락넣기 */
+.head::after{
+  content: '';
+  position: absolute;
+  top: -91%;
+  left: -133%;
+  width: 355%;
+  height: 332%;
+  background: url(../images/hair_new99.png) no-repeat 0 / 100% 100%;
 }
 
+/* 로봇머리 햐위 공통 앱솔루트 */
+.head > div {
+  position: absolute;
+}
 
 /* 눈 공통 */
 .eye {
-  position: absolute;
-  top: 50px;
+  /* position: absolute; */
+  top: 80px;
   /* 나의 부모는? head */
   width: 50px;
   height: 50px;
@@ -67,21 +86,351 @@ body {
 
 /* 왼쪽눈 */
 .eye1 {
-  left: 50px;
+  /* 개별위치값 */
+  left: 15%;
   /* 이미지만 변경 */
   background-image: url(../images/e1.jpg);
 }
 
 /* 오른쪽눈 */
 .eye2 {
-  right: 50px;
+  /* 개별위치값 */
+  right: 15%;
+
   /* 이미지만 변경 */
   background-image: url(../images/e2.jpg);
 }
 /* 코 */
+.nose {
+  top: 115px;
+
+  /* 가로방향 중앙이동설정
+  -> left 절반밀고 자신크기 절반 반대로 이동*/
+  left: 50%;
+  translate: -50%;
+
+  width: 45px;
+  height: 65px;
+  background: url(../images/nose.jpg) no-repeat 0/110%
+    100%;
+  border-radius: 20px;
+}
+
 /* 입 */
+.mouth {
+  /* 가로방향 중앙이동설정
+  -> left 절반밀고 자신크기 절반 반대로 이동*/
+  left: 50%;
+  translate: -50%;
+
+  bottom: 10%;
+  width: 95px;
+  height: 33px;
+  background: url(../images/mouth.png) no-repeat 0 /
+    100% 100%;
+}
+
+/* 귀 공통 */
+.ear {
+  top: 90px;
+  width: 30px;
+  height: 55px;
+}
+
 /* 왼쪽귀 */
+.ear1 {
+  /* 왼쪽바깥위치 */
+  left: -30px;
+  /* 왼위, 아래만 둥근모서리 */
+  border-radius: 15px 0 0 15px;
+}
+
 /* 오른쪽귀 */
+.ear2 {
+  /* 오른쪽바깥위치 */
+  right: -30px;
+  /* 오른위, 아래만 둥근모서리 */
+  border-radius: 0 15px 15px 0;
+}
+
 /* 2-1-2. 로봇몸통 */
+
+.body {
+  /* 부모자격 렐러티브 */
+  position: relative;
+  width: 180px;
+  height: 320px;
+  /* 마영오! 가로중앙 */
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* .body가상 요소로 상체 만들기 */
+.body::before {
+  content: "";
+  display: block;
+  /* 블록으로 변경해야 div같이 사용가능 */
+  position: absolute;
+  top: 0;
+  left: -10%;
+  /* 부모는? .body*/
+  z-index: 1;
+  width: 120%;
+  height: 50%;
+  /* bgi */
+  background-image: linear-gradient(
+    to bottom,
+    #ffcaca,
+    #ffdf87,
+    #fd409e
+  );
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+/* .body가상 요소로 핫팬츠 만들기 */
+.body::after {
+  content: "";
+  display: block;
+  /* 블록으로 변경해야 div같이 사용가능 */
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  /* 부모는? .body*/
+  z-index: 1;
+  width: 120%;
+  height: 30%;
+  /* bgi */
+  background-image: linear-gradient(
+    to bottom,
+    #ffcaca,
+    #ffdf87,
+    #fd409e
+  );
+  background-color: #fff;
+  border-radius: 15px 15px 150% 150%;
+}
+
+/* 바디 하위요소 앱솔루트 */
+.body > div {
+  position: absolute;
+}
+/* 로봇 목 */
+.neck {
+  top: -60px;
+  left: 50%;
+  translate: -50%;
+  width: 50px;
+  height: 70px;
+  border-radius: 20px;
+}
+/* 팔 공통 */
+.arm {
+  top: 50px;
+  width: 50px;
+  height: 180px;
+}
+
+/* 팔관절 가상요소로 만들기 */
+.arm::after {
+  content: "";
+  position: absolute;
+  /* 앱솔루트주면 자동블록 */
+  top: 90%;
+  left: -10%;
+  width: 120%;
+  /* 패딩top을 %로 하면 박스 가로크기를 기준하여 생성된다! 100%정사각형
+  단, 높이값(height)을 주지 말것! */
+  padding-top:100%;
+  /* 원형 그라데이션주기*?
+  radial-gradient(색1, 색2, 색3) */
+  background-image: radial-gradient(
+    #f8f8f8 5%,
+    #dbdbdb 10%,
+    #505050
+    );
+  border: 5px solid #4e4e4e;
+  /* 원만들기 */
+  border-radius: 50%;
+  /* bora */
+  box-sizing: border-box;
+}
+  
+  
+
+
+/* 왼팔 */
+.arm1 {
+  left: -60px;
+  rotate: 29deg;
+  transform-origin: top;
+}
+
+/* 오른팔 */
+.arm2 {
+  right: -60px;
+  rotate: -29deg;
+  transform-origin: top;
+}
+
+/* 팔 하단 공통 */
+.arm span {
+  position: absolute;
+  /* 부모는? .arm */
+  top: 100%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+}
+
+/* 다리 하단 공통 */
+.leg span {
+  position: absolute;
+  /* 부모는? .arm */
+  top: 100%;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+}
+
+/* 부츠상단 가상요소 */
+.leg span::before{
+  /* ct */
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right, #585858, #000000);
+    border: 2px solid #222;
+    border-top-width: 10px;
+    /* 패딩, 보더 포함박스 : bxb ★★★★★*/
+    box-sizing: border-box;
+  }
+  
+  /* 부츠하단 가상요소 */
+  .leg span::after{
+    /* ct */
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -30%;
+    width: 160%;
+    height: 20%;
+    background-image: linear-gradient(
+      to right, #585858, #000000);
+  border: 2px solid #222;
+  border-top-width: 5px;
+  /* 패딩, 보더 포함박스 : bxb ★★★★★*/
+  box-sizing: border-box;
+  border-radius: 50% 50% 0 0;
+  border-bottom-width: 15px;
+}
+
+/* 왼손 : span의 가상요소로 만들기 */
+.arm span::after{
+  content: "";
+  /* 앱솔루트 자동블록 */
+  position: absolute;
+  /* 손 안감춰지게 위로배치 */
+  z-index: 1;
+  top: 100%;
+  /* 손 이미지 배경 사이즈 */
+  width: 80px;
+  height: 110px;
+  /* 배경공통 */
+  /* bgr */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* 왼손 */
+.arm1 span::after{
+  /* bgi */
+  background-image: url(../images/hand_left.png);
+  left: -13px;
+}
+
+/* 오른손 */
+.arm2 span::after{
+  /* bgi */
+  background-image: url(../images/hand_right.png);
+  right: -13px;
+}
+
+
+/* 다리공통 */
+.leg {
+  top: 100%;
+  width: 70px;
+  height: 260px;
+}
+
+/* 다리관절 가상요소로 만들기 */
+.leg::after{
+  content: '';
+  position: absolute;
+  /* 앱솔루트주면 자동블록 */
+  top: 90%;
+  left: -10%;
+  width: 120%;
+  height: 15%;
+  /* bora */
+  border-radius: 20px;
+  background-image: linear-gradient(
+    45deg, #dbdbdb 10%, #505050 85%);
+    border: 5px solid #4e4e4e;
+    box-sizing: border-box;
+  }
+  
+  /* 다리관절 가상요소로 만들기 */
+  .leg::after{
+    content: "";
+    position: absolute;
+    /* 앱솔루트주면 자동블록 */
+    top: 90%;
+    left: -10%;
+    width: 120%;
+    height: 15%;
+    background-image: linear-gradient(
+      45deg, #dbdbdb 10%, #505050 85%);
+      
+      /* bora */
+      border-radius: 20px;
+      border: 5px solid #4e4e4e;
+      box-sizing: border-box;
+  }
+  
+  /* 왼다리 */
+  .leg1 {
+    left: 0;
+  }
+  
+  /* 오른다리 */
+  .leg2 {
+    right: 0px;
+  }
+  
+  /* 어깨공통 */
+  .shdr {
+    top: 10px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* 왼어깨 */
+  .shdr1 {
+    left: -70px;
+    border-radius: 50% 0 0 50%;
+  }
+  /* 오른어깨 */
+  .shdr2 {
+  right: -70px;
+  border-radius: 0 50% 50% 0;
+}
+
 /* 2-2. 설명박스 */
+
 /***************************** 3. 하단영역 *****************************/
