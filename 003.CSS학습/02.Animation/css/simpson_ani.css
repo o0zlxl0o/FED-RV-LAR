@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+/* 심슨 가족 애니메이션 코드 : simpson_ani.css */
+
+/* 심슨 애니 호출 */
+.simpson {
+  /* 애니메이션:이(이름)시(시간)이(이징)지(지연)반(반복)방(방향)마(마지막) */
+  animation: simpson-ani 4s ease-in-out 2s
+    alternate forwards;
+  /* 
+    ((반복))
+    반복횟수 없으면 1번만, 숫자만큼 반복, 영원히는 infinite
+    ((방향))
+    - alternate 번걸아 설정시 왔다갔다함!(횟수가 많아야함)
+    ((마지막상태))
+    처음상태가 backwards(기본값)/ 나중상태가 forwards
+    - 마지막장면 상태유지 하려고 할때 forwards 사용
+    - 횟수가 무한이면 안됨
+
+     */
+}
+
+/* 심슨 키프레임 */
+@keyframes simpson-ani {
+  0% {
+    top: 65%;
+    left: 43.7%;
+    width: 5%;
+  }
+  /* 1. 옆으로 나옴 */
+  10% {
+    top: 69%;
+    left: 39.7%;
+    width: 9%;
+  }
+  /* 2. 걸어서 앞으로 나옴 
+    z-index위로 설정, rotate설정*/
+  20% {
+    top: 72%;
+    left: 39.7%;
+    width: 9%;
+    z-index: 1;
+    rotate:-5deg;
+  }
+  40% {
+    top: 69%;
+    left: 36.7%;
+    width: 14%;
+    z-index: 1;
+    rotate:5deg;
+  }
+  60% {
+    top: 67%;
+    left: 38.7%;
+    width: 18%;
+    z-index: 1;
+    rotate:-5deg;
+  }
+  80% {
+    top: 48%;
+    left: 39.7%;
+    width: 26%;
+    z-index: 1;
+    rotate:5deg;
+  }
+  100% {
+    top: 28%;
+    left: 35.7%;
+    width: 34%;
+    z-index: 1;
+    rotate:0deg;
+  }
+}
+
+/* 키프레임 */
+
+/* 열기 호출 */
+.door {
+  /* animation:이시이지반방마;  */
+  animation: door-ani 2s ease-in-out 1s;
+}
+
+/* 문열기 키프레임
+닫음-열림-열림-닫음 */
+@keyframes door-ani {
+  0% {
+    rotate: y 125deg;
+  }
+  30% {
+    rotate: y 125deg;
+  }
+  70% {
+    rotate: y 125deg;
+  }
+  100% {
+    rotate: y 125deg;
+  }
+} /* 키프레임 */
+
+/* 말풍선 애니호출 */
+.words{
+    /* 애니메이션 : 이시(이)지(반방)마 */
+    animation: tooltip-ani 1s 6s forwards;
+}
+
+/* 말풍선 키프레임 */
+@keyframes tooltip-ani {
+    /* 처음값이 기본값과 같으면 from생략가능 */
+    to{
+        opacity: 1;
+    }
+}
+/* 키프레임 */
+
+/* 마지 애니호출 */
+.marge{
+    animation: marge-ani 1s ease-out 7s forwards;
+}
+
+/* 마지키프레임 */
+@keyframes marge-ani{
+    to{
+    right: -26%;
+    transform: rotate(-20deg);
+    }
+    
+}
+
+
+/* 키프레임 */
+
+/* 리사 애니호출 */
+.lisa{
+    animation: lisa-ani 1s ease-out 7.5s forwards;
+}
+
+/* 리사 키프레임 */
+@keyframes lisa-ani {
+    to{
+        left: 0;
+    }
+    
+}
+/* 키프레임 */
+/* 메기애니호출
+-> 다중애니적용은 (이시이지반방마)를 콤마로 연결하여 적용한다! */
+.maggie{
+    animation: 
+    /* 등장애니 */
+    maggie-ani 1s ease-out 8s forwards,
+    /* 업다운애니 - alternate는 번갈아 양방향 애니셋팅 */
+    maggie-updown-ani .5s ease-in-out 9s infinite alternate,
+    /* 왔다갔다애니 */
+    maggie-comengo-ani 10s ease-in-out 12s infinite alternate; 
+}
+
+/* 메기 키프레임 */
+@keyframes maggie-ani{
+    to{
+        bottom: -15%;
+    }
+}
+
+
+/* 키프레임 */
+
+/* 메기 업다운 키프레임 */
+@keyframes maggie-updown-ani{
+to{
+    bottom: -20%;
+}
+    
+}
+
+
+/* 키프레임 */
+
+/* 메기 왔다갔다 키프레임 */
+@keyframes maggie-comengo-ani {
+0%{
+    left: 12%;
+}    
+30%{
+    left: 8%;
+}    
+100%{
+    left: 80%;
+}    
+}
+
+/* 키프레임 */
+
+/* 바트 애니호출 */
+.bart{
+    animation:
+    /* 바트 키프레임 */
+    bart-ani 1s ease-out 8.5s forwards,
+    /* 바트 추락 키프레임 */
+    bart-falling-ani .5s ease-out 12s forwards,
+    /* 바트 일어섬 */
+    bart-standup-ani .5s ease-out 17s forwards;
+
+}
+
+/* 바트 키프레임 */
+@keyframes bart-ani {
+    to {
+        top: -25%;
+    }
+}
+
+/* 키프레임 */
+
+/* 바트 추락 키프레임 */
+@keyframes bart-falling-ani {
+to{
+    top: 100%;
+    transform: rotate(0deg);
+}  
+}
+
+/* 키프레임 */
+
+/* 바트 일어섬 키프레임 */
+@keyframes bart-standup-ani {
+to{
+    top: 50%;
+}
+    
+}
+
+/* 키프레임 */
