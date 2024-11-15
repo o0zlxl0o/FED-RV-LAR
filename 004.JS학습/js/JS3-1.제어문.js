@@ -22,8 +22,7 @@ function showJumsu() {
     document.querySelector("#jumsu");
 
   // 2-2. 출력요소 : .jexp
-  var jexp =
-    document.querySelector(".jexp");
+  var jexp = document.querySelector(".jexp");
 
   // 2-3. 칭찬스티커요소 : .jshow
   var jshow =
@@ -48,9 +47,7 @@ function showJumsu() {
   // JS 내장함수 isNaN(보낼값) -> 결과는?
   // 숫자가 아니면 true, 숫자이면 false
   if (isNaN(score)) {
-    console.log(
-      "숫자가 아니구만~! 나가!!!"
-    );
+    console.log("숫자가 아니구만~! 나가!!!");
 
     // 초기화하기 ////////////
     // (1) 텍스트 변경하기
@@ -159,13 +156,11 @@ function showJumsu() {
 
   // 5. 화면출력 변경하기 //////
   // 5-1. 텍스트 변경하기
-  jexp.innerText =
-    "평가결과는 " + expText;
+  jexp.innerText = "평가결과는 " + expText;
   // 5-2. 글자색 변경하기
   jexp.style.color = expColor;
   // 5-3. 칭찬스티커 변경하기
-  jshow.style.backgroundPosition =
-    jshowPos;
+  jshow.style.backgroundPosition = jshowPos;
 } /////////// showJumsu함수 /////////////
 
 /*************************************** 
@@ -230,10 +225,7 @@ if (false) {
 // 변수를 사용한 불린값 체크
 var condition;
 
-console.log(
-  "할당안된변수값:",
-  condition
-);
+console.log("할당안된변수값:", condition);
 
 // if문 처리결과 찍기 함수 //////////
 var showResult = function (txt) {
@@ -242,15 +234,9 @@ var showResult = function (txt) {
   console.log("♥" + txt + "♥");
   // if문 테스트하기!
   if (condition) {
-    console.log(
-      condition,
-      "if문 통과!"
-    );
+    console.log(condition, "if문 통과!");
   } else {
-    console.log(
-      condition,
-      ": false처리!"
-    );
+    console.log(condition, ": false처리!");
   }
 }; //////////// showResult함수 /////////////
 
@@ -276,13 +262,9 @@ showResult("테스트 3 : null");
 // 테스트 4 : 비교연산자
 // -> 비교연산자는 결과로 true/false를 리턴함
 condition = 34 < 1;
-showResult(
-  "테스트 4 : 비교연산자 (34 < 1)"
-);
+showResult("테스트 4 : 비교연산자 (34 < 1)");
 condition = 34 > 1;
-showResult(
-  "테스트 4 : 비교연산자 (34 > 1)"
-);
+showResult("테스트 4 : 비교연산자 (34 > 1)");
 
 // 테스트 5 : 선언된적이 없는 변수
 // -> 아예 에러가 발생함!
@@ -291,3 +273,159 @@ showResult(
 
 // 상단 콘솔출력 지우기
 console.clear();
+
+///////////////////////////////////////////////////
+// switch문 연습 /////////////
+// 여기서 직접 요소에 이벤트를 설정해 보자!
+// 함수 바깥영역은 바로 실행되므로 이 파일을 불러오는
+// 설정에서 속성으로 defer를 써서 코딩하자!
+
+// 1. 대상선정
+// 1-1. 이벤트 대상 : button.btn-local
+var btnLocal = document.querySelector(
+  ".btn-local"
+);
+
+// 1-2. 국번출력 : #info
+var infoLocal =
+  document.querySelector("#info");
+
+// 1-3. 입력창 : input#local
+var inputLocal =
+  document.querySelector("#local");
+
+// console.log("대상찍어:", btnLocal, infoLocal, inputLocal);
+
+// 2. 이벤트 설정
+btnLocal.onclick = showLocal;
+//  sbtn.onclick = function(){showLocal=};
+
+// 주의사항!! 선언된 함수를 할당할 때 뒤에 소괄호를 하지말자!
+// 바로 실행되니까~~!\
+// 추가로 입력창에 onkeypress이벤트 발생시 함수호출처리
+inputLocal.onkeypress = function() {
+  // 1. enter키가 입력되었는지 확인
+  if(event.keyCode == 13){
+    //2. showLocal()호출
+    showLocal();
+  }
+}
+
+/*******************************************************
+ 함수명 : showLocal
+ 기능 : 지역명을 입력하면 지역국번을 안내한다!
+*******************************************************/
+
+function showLocal() {
+  // 1. 함수호출확인
+  // console.log("국번을 알려줘!");
+
+  // 2. 입력값 읽어오기
+  var inputText = inputLocal.value;
+  console.log("입력값:", inputText);
+
+  // 3. switch문으로 분기하여 메시지 만들기
+  var msg = "";
+
+  switch (inputText) {
+    case "서울":
+      msg = "02";
+      break;
+    case "경기":
+      msg = "031";
+      break;
+    case "부산":
+      msg = "051";
+      break;
+    case "제주":
+      msg = "064";
+      break;
+    case "인천":
+      msg = "032";
+      break;
+    case "대구":
+      msg = "053";
+      break;
+    case "광주":
+      msg = "062";
+      break;
+    case "전북":
+      msg = "063";
+      break;
+    case "전남":
+      msg = "061";
+      break;
+    case "경북":
+      msg = "054";
+      break;
+    case "경남":
+      msg = "055";
+      break;
+    case "세종":
+      msg = "044";
+      break;
+    case "울산":
+      msg = "052";
+      break;
+    case "대전":
+      msg = "042";
+      break;
+    case "충북":
+      msg = "043";
+      break;
+    case "충남":
+      msg = "041";
+      break;
+    case "나성":
+      msg =
+        "나성에 가면 편지를 전해줘요~!";
+      break;
+    default:
+      msg = "etc";
+  }
+
+  // 4. 메시지 만들기
+  // 등록되지 않은 지역일 경우
+  if (inputText == "etc") {
+    msg =
+      "입력하신 지역은 등록되지 않았습니다!";
+  }
+  // 등록된 지역일 경우
+  else {
+    msg = `${inputText}의 지역번호는 <span style=
+ "font-size:40px; color:hotpink">${msg}</span>입니다!`;
+  }
+
+  // 5. #info에 출력
+  infoLocal.innerHTML = msg;
+
+  /********************************************** 
+      [ switch case문 ]
+      - 단일조건을 분류하여 실행문을 만들어 줄때 사용하는 제어문
+
+      ((구문구조))
+      ________________________________________
+
+      switch(변수){
+          case 경우1: 실행코드; break;
+          case 경우2: 실행코드; break;
+          case 경우3: 실행코드; break;
+          ...
+          default: 실행문;
+      }
+      ________________________________________
+
+      ((구문해석))
+
+      1. 변수값에 해당하는 경우 그 값에 해당하는
+      case에 들어가서 실행코드를 실행함
+
+      2. 각 case 끝에 break 예약어를 반드시 써야함!
+      -> 안쓰면 다른 case에 또 들어가는 경우가 생김!
+      -> 일반적으로 break 키워드는 제어문을 빠져나갈때 씀!
+
+      3. default 는 if문의 else문과 비슷하여 해당 케이스가 
+      없으면 이 부분이 실행됨(단, 필요시 사용)
+      -> default문에는 break를 쓰지 않는다!
+  **********************************************/
+} /////////////// showLocal함수 /////////////
