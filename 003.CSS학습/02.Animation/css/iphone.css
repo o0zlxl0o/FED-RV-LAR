@@ -1,8 +1,7 @@
 /* 웹폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
 /* font-family: 'Anton', sans-serif; */
-
 
 @charset "utf-8";
 
@@ -74,6 +73,9 @@ body {
   );
   /* 넘치는 자식요소 숨기기 */
   overflow: hidden;
+
+  /* 커서 이미지 변경 */
+  cursor: url("../images/curser.png"), auto;
 }
 
 /* 아이폰 박스 */
@@ -100,7 +102,11 @@ body {
   transform-style: preserve-3d;
 
   /* 회전적용 */
-  transform: rotateX(10deg) rotateY(30deg);
+  transform: rotateX(10deg)
+  rotateY(30deg);
+  
+  /* 트랜지션 적용 */
+  transition: .4s ease-out
 }
 
 /* 아이폰 각 면 공통 */
@@ -113,19 +119,41 @@ body {
   background-size: 100% 100%;
   /* 배경 투명부분을 흰색으로 채우기 */
   background-color: #fff;
-  
 }
 
 /* 1. 앞면 */
 .iphone span:nth-child(1) {
   background-image: url(../images/ip01.png);
-
+  
   /* Z축 이동하기 tftz */
   /* transform: translateZ(20px); */
   translate: 0 0 10px;
-
+  
   /* 안보이게 dn */
   /* display: none; */
+}
+/* 배경이미지 가상요소로 하나추가 */
+.iphone span:nth-child(1)::after{
+  content: '';
+  position: absolute;
+  /* 중앙위치 */
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  /* 높이값 0 */
+  height: 0%;
+  background: url(../images/avatar.jpg) no-repeat center/cover;
+  /* 애니메이션 : 이시이지반방마 */
+  animation:avatar-ani .5s ease-in-out 5s forwards;
+}
+/* 아바타 가운데서 펼쳐짐 */
+@keyframes avatar-ani {
+  to{
+    /* 위로 올라가고 높이값 생김
+    - 중앙에서 펼쳐지는 모양 */
+    top: 20%;
+    height: 60%;
+  } 
 }
 
 /* 2. 뒷면 */
@@ -166,167 +194,197 @@ body {
 
   /* X축 이동하기 tftz */
   /* calc(두께/2*-1)-> -10px */
-  translate: calc(var(--ip-side-size)/2*-1);
+  translate: calc(
+    var(--ip-side-size) / 2 * -1
+  );
   /* translate: -10px; */
 
   /* y축 회전 90도 */
   rotate: y -90deg;
 }
 
-
 /* 5. 아랫면 */
 .iphone span:nth-child(5) {
-    background-image: url(../images/ip05.png);
-  
-    /* 세로크기 재설정 */
-    height: var(--ip-side-size);
-  
-    /* 아랫쪽끝으로 이동 */
-    bottom: -10px;
-  
-    /* x축회전 90도 */
-    rotate: x 90deg;
-  }
+  background-image: url(../images/ip05.png);
+
+  /* 세로크기 재설정 */
+  height: var(--ip-side-size);
+
+  /* 아랫쪽끝으로 이동 */
+  bottom: -10px;
+
+  /* x축회전 90도 */
+  rotate: x 90deg;
+}
 
 /* 6. 아랫면 */
 .iphone span:nth-child(6) {
-    background-image: url(../images/ip06.png);
-  
-    /* 세로크기 재설정 */
-    height: var(--ip-side-size);
-  
-    /* 윗쪽끝으로 이동 */
-    top: -10px;
-  
-    /* x축회전 90도 */
-    rotate: x 90deg;
-  }
-  
-  /* 애니호출 클래스 */
-  .ip-ani{
-    /* 애니메이션(이시이지반방마) */
-    animation: ip-rotate-ani 2s ease-in-out 1s  2 alternate;
-    /* 이름 시간(2초) 이징 지연(1초) 반복(2회) 방향(번갈아) */
-  }
+  background-image: url(../images/ip06.png);
 
-  /* 아이폰 회전 키프레임 */
-@keyframes ip-rotate-ani {
-    to{
-        transform: rotateX(370deg)
-        rotateY(-330deg);
-        /* 각도 설정시 유의사항 */
-        /* 360도 설정시 이미 회전된 각도를
-        고려하여 같은 방향이면 + 반대방향이면 -로 쓰고
-        실제 각도를 더하거나 빼준다 */
-    }    
+  /* 세로크기 재설정 */
+  height: var(--ip-side-size);
+
+  /* 윗쪽끝으로 이동 */
+  top: -10px;
+
+  /* x축회전 90도 */
+  rotate: x 90deg;
 }
 
+/* 애니호출 클래스 */
+.ip-ani {
+  /* 애니메이션(이시이지반방마) */
+  animation: ip-rotate-ani 2s ease-in-out 1s
+    2 alternate;
+  /* 이름 시간(2초) 이징 지연(1초) 반복(2회) 방향(번갈아) */
+}
+
+/* 아이폰 회전 키프레임 */
+@keyframes ip-rotate-ani {
+  to {
+    transform: rotateX(370deg)
+      rotateY(-330deg);
+    /* 각도 설정시 유의사항 */
+    /* 360도 설정시 이미 회전된 각도를
+        고려하여 같은 방향이면 + 반대방향이면 -로 쓰고
+        실제 각도를 더하거나 빼준다 */
+  }
+}
 
 /* 흘러가는 글자박스 부모 */
-.fbx{
-    position: absolute;
-    width: 100vw;
-    font-size: 25px;
+.fbx {
+  position: absolute;
+  width: 100vw;
+  font-size: 25px;
 }
 
 /* 각 각 위치잡기 */
-.f1{
-    top: 5vh;
+.f1 {
+  top: 5vh;
 }
-.f2{
-    bottom: 5vh;
+.f2 {
+  bottom: 5vh;
 }
 
 /* 아래쪽 박스는 tbx가 왼쪽에 나가 있도록 함! */
-.f2 .tbx{
-    translate: -50%;
+.f2 .tbx {
+  translate: -50%;
 }
 
 /* 텍스트 박스 */
-.tbx{
-    /* 플랙스 박스 : 하위 ul흘러감 */
-    display: flex;
-    /* ul이 2개니까 2배 크기로 만들어서
+.tbx {
+  /* 플랙스 박스 : 하위 ul흘러감 */
+  display: flex;
+  /* ul이 2개니까 2배 크기로 만들어서
     바깥에 하나 나가있게 한다 */
-    width: 200vw;
-    color: #929292;
+  width: 200vw;
+  color: #929292;
 }
 
 /* 텍스트박스 하위ul 공통
 - 2개인 이유는 반복단위 최소개수*/
-.tbx ul{
-    /* 플렉스 박스 df : 하위 li가 흘러감 */
-    display: flex;
-    /* 부모에게 플랙스 한면 자식이 흘러감 */
+.tbx ul {
+  /* 플렉스 박스 df : 하위 li가 흘러감 */
+  display: flex;
+  /* 부모에게 플랙스 한면 자식이 흘러감 */
 
-    /* outline: 4px dotted red ; */
+  /* outline: 4px dotted red ; */
 
-    /* ul은 또 플렉스 부모의 자식임! 등분할 */
-    flex: 1;
+  /* ul은 또 플렉스 부모의 자식임! 등분할 */
+  flex: 1;
 
-    /* 기본 초기화 */
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-
+  /* 기본 초기화 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* 하위 li 공통셋팅 */
-.tbx li{
-    /* 플렉스 자식 등분할! fx1 */
-    flex: 1;
-    /* 절대 밑으로 안떨어짐 */
-    /* 아웃라인 ol */
-    /* outline: 2px dashed blue; */
+.tbx li {
+  /* 플렉스 자식 등분할! fx1 */
+  flex: 1;
+  /* 절대 밑으로 안떨어짐 */
+  /* 아웃라인 ol */
+  /* outline: 2px dashed blue; */
 
-    text-align: center;
-    font-family: 'Anton';
-    font-style: 4vw;
+  text-align: center;
+  font-family: "Anton";
+  font-style: 4vw;
 }
 
 /* 글자 애니 클래스1 */
-.txt-ani1{
-    animation: txt-flow-ani1 7s linear infinite;
+.txt-ani1 {
+  animation: txt-flow-ani1 7s linear infinite;
 }
 
 /* 글자 흐르게 하기 키프레임1 */
 @keyframes txt-flow-ani1 {
-    to{
-        translate: -50%;
-    }
-    
+  to {
+    translate: -50%;
+  }
 }
 
-
 /* 글자 애니 클래스2 */
-.txt-ani2{
-    animation: txt-flow-ani2 7s linear infinite;
+.txt-ani2 {
+  animation: txt-flow-ani2 7s linear infinite;
 }
 
 /* 글자 흐르게 하기 키프레임2 */
 @keyframes txt-flow-ani2 {
-    to{
-        translate: 0%;
-    }
-    
+  to {
+    translate: 0%;
+  }
 }
 
 /* 3번째 박스(반대방향주기 다른방법) */
-.f3{
-    bottom: 15vh;
+.f3 {
+  bottom: 15vh;
 }
-.f3:hover .tbx{
-    /* 마우스 오버시 멈추게하기 */
-    animation-play-state: paused;
-    /* running 애니진행상태 / paused 애니멈춤상태 */
+.f3:hover .tbx {
+  /* 마우스 오버시 멈추게하기 */
+  animation-play-state: paused;
+  /* running 애니진행상태 / paused 애니멈춤상태 */
 }
 /* 글자애니 클래스3 */
-.txt-ani3{
-    /* 기존 왼쪽방향 흐름 애니를 그대로 호출함! */
-    animation: txt-flow-ani1 5s linear infinite reverse;
-    /* 방향 속성 값을 reverse로 하면 기존 애니가 반대로 적용된다! */
+.txt-ani3 {
+  /* 기존 왼쪽방향 흐름 애니를 그대로 호출함! */
+  animation: txt-flow-ani1 5s linear infinite
+    reverse;
+  /* 방향 속성 값을 reverse로 하면 기존 애니가 반대로 적용된다! */
 }
 
+/* 아이폰 이벤트 박스 : 따라보기 */
+.evt-bx {
+  position: fixed;
+  /* 사방 당겨서 화면 채우기 */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* 맨위에 위치 */
+  z-index: 999;
+  /* 처음에 안보임 */
+  display:none;
+}
 
+/* 하위 ul 초기화 */
+.evt-bx ul {
+  /* 플랙스 박스 */
+  display: flex;
+  /* 랩핑박스(fxww) : 아래로 떨어져서 계속감 */
+  flex-wrap: wrap;
 
+  /* 기본 초기화 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 플렉스 자식 li셋팅 */
+.evt-bx li {
+  /* 가로 5등분 */
+  width: 20vw;
+  /* 세로 3등분 */
+  height: 33.333vh;
+  /* outline: 2px dashed lightsalmon; */
+}
