@@ -23,6 +23,14 @@
       rel="stylesheet"
       href="./CSS/robot_ani.css"
     />
+    <!-- 미디어쿼리 css -->
+    <link
+      rel="stylesheet"
+      href="./CSS/robot_media.css"
+    />
+    <!-- robot js -->
+     <!-- 외부에서 불러오는건 사이에 아무것도 적으면 안된다 -->
+     <script src="./JS/robot.js"></script>
   </head>
   <body>
     <!-- 1. 상단영역 -->
@@ -103,20 +111,21 @@
                 <!-- 유튜브동영상 -->
                 <iframe
                   src="https://www.youtube.com/embed/RMD91n01DuA"
+                  allow="autoplay"
                 ></iframe>
               </div>
               <!-- 컨트롤버튼 -->
               <div class="btns">
-                <button class="ch1">
+                <button class="ch1" title="채널1">
                   ch1
                 </button>
-                <button class="ch2">
+                <button class="ch2" title="채널2">
                   ch2
                 </button>
-                <button class="ch3">
+                <button class="ch3" title="채널3">
                   ch3
                 </button>
-                <button class="scale">
+                <button class="scale" title="확대">
                   ▣
                 </button>
               </div>
