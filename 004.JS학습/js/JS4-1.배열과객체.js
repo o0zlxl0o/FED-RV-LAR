@@ -77,10 +77,9 @@ const arr1 = new Array(
     // 앱솔루트의 부모자격을 this에게 준다!
     this.style.position = "relative";
 
-  // 위에서 생성된 id="kim" 요소를 변수에 할당함!
-    const kim =
-    document.querySelector("#kim");
-    
+    // 위에서 생성된 id="kim" 요소를 변수에 할당함!
+    const kim = document.querySelector("#kim");
+
     // 2.마우스 오버시 나타나고
     this.onmouseenter = () => {
       kim.style.display = "block";
@@ -110,14 +109,8 @@ const arr1 = new Array(
       // 여기서는 본 박스 안에서만 그 위치를 알면 되므로
       // -> offsetX, offsetY -> 해당부모요소 박스로 부터
       // 위치를 리턴함!
-      console.log(
-        "offsetX:",
-        헐.offsetX
-      );
-      console.log(
-        "offsetY:",
-        헐.offsetY
-      );
+      // console.log("offsetX:", 헐.offsetX);
+      // console.log("offsetY:", 헐.offsetY);
 
       // 위치값 반영대상 : 김태리 이미지 -> #kim
       kim.style.left = `${헐.offsetX}px`;
@@ -165,8 +158,7 @@ target[0].innerHTML = `
 
 // 김태리 기능추가!
 // 배열마지막 번호 == 배열개수 - 1
-target[0].onclick =
-arr1[arr1.length - 1];
+target[0].onclick = arr1[arr1.length - 1];
 // 함수호출은 소괄호 필수!!!
 
 // click 이벤트 강제 실행!
@@ -193,8 +185,7 @@ const arr2 = [
     this.style.scale = "1.5";
     this.style.rotate = "720deg";
     // 트랜지션 : 2초, ease-in-out
-    this.style.transition =
-    "2s ease-in-out";
+    this.style.transition = "2s ease-in-out";
 
     // 4초후에 다시 원래크기로 돌아가기
     // setTimeout(함수,시간)
@@ -229,8 +220,7 @@ ${arr2[1]}를 들고 일어난 민중봉기를 기념하는 날이다!
 target[1].onclick = arr2[3];
 
 // 두번째 박스에 타이틀 출력
-target[1].title =
-"클릭하시면 만세를 합니다!";
+target[1].title = "클릭하시면 만세를 합니다!";
 // 두번째 박스에 손가락 표시
 target[1].style.cursor = "pointer";
 
@@ -268,7 +258,10 @@ arr3[7] = "날아서~";
 
 // 배열전체값 출력하기 : valueOf()
 console.log("arr3배열전체값:", arr3.toString());
-console.log("arr3배열전체값:", arr3.valueOf().toString());
+console.log(
+  "arr3배열전체값:",
+  arr3.valueOf().toString()
+);
 // 현재 브라우저는 valueOf()안해도 배열값을 보여준다!
 // toString() 출력은 배열값을 콤마로 연결한 문자열로 변환한다!
 
@@ -279,9 +272,135 @@ console.log("arr3배열 join():", arr3.join("♥"));
 // 배열값 맨 뒤에 값 추가하기 메서드 : push()
 arr3.push("김창환작사");
 
-
 // 배열값을 세번째 target 박스에 출력하기
 // join()으로 사이에 별표 넣고 문자열 변환출력
 target[2].innerHTML = arr3.join("★");
 
 // -> 배열 메서드는 중요하므로 별도로 훈련함!!!
+
+/********************************************
+           [ 객체(Object) 란? ]
+
+   - 일반적으로 JS에서 객체란 속성과 메서드를
+   가지는 프로그램 단위체
+   - 속성은 명사적 특징, 메서드는 동사적 특징
+   객체예)
+   https://www.w3schools.com/js/js_objects.asp
+   - 자동차의 명사적특징: 핸들, 백미러, 트렁크, 바퀴 등
+   - 자동차의 동사적특징: 운전하다, 멈추다, 주차하다 등
+
+   (참고: 브라우저에 이미 만들어져 있는 객체들)
+   -> 내장객체라고함!
+   -> 브라우저 내장객체-> 봄(BOM:Browser Object Model)
+   -> https://www.w3schools.com/js/js_window.asp
+
+   window : 윈도우(브라우저화면) 표시 관련객체
+   document : 문서구조에 관련된 객체
+   Array : 배열객체
+   Object : 객체를 만들기 위한 객체
+   Date : 날짜객체
+   Math : 수학객체
+   ___________________________________
+
+   ->>> 내장객체 중 객체를 만들기위한 객체인 Object를
+   사용하여 객체를 만들어보자!
+
+   [ 객체의 선언의 2가지 방식 ]
+   1. new 키워드 선언방식
+   - new Object()
+
+   2. 리터럴 선언방식(객체리터럴)
+   - 변수 = {}
+
+   [ 객체의 할당 ]
+   - 중괄호{}를 사용하여 할당코딩을 함
+   - {속성명:값,속성명:값,...}
+   - 여러값을 셋팅할때 콤마로 구분한다
+   - 배열과 비교해서 이해하기 쉽고 호출하기 쉽다!
+   - 객체 스타일로 데이터 구조를 만들고
+   이런 파일로 DB와 데이터 통신을 한다!
+   이 파일의 이름은? 제이슨(JSON:확장자.json)
+
+   [ 객체의 호출 ]
+   - 객체명[속성명]
+   또는
+   - 객체명.속성명
+
+*******************************************/
+
+// 2. 객체를 셋팅하고 출력하기 //////
+// 2-1. new 키워드로 object객체 생성하여 셋팅하기
+// -> 실제 코드에서는 객체 리터럴 방식을 쓴다
+// 즉, 변수 = {}
+// 여기서는 new키워드 생성 방식도 된다는 것을 체험함!
+// 객체는 셋팅시 반드시 중괄호{}를 사용함!
+// 중괄호 안에는 {속성명:값, 속성명:값,...}
+const SSG = new Object({
+  "너의 이름은?": "손석구",
+  생일: "1983년 2월 7일",
+  키: "178cm",
+  몸무게: "80kg",
+  혈액형: "C형",
+  성별: "남성",
+  대표작: "나의 해방일지,범죄도시2",
+  소속사:"셋별당엔터",
+  비밀번호: 7777,
+  팬레터: function () {
+    //this키워드 : 이벤트 호출요소 자신!
+    alert("상남자 오빠! 지금뭐해?");
+    console.log("this:",this);
+
+    // 변경대상 : this.style
+    let mycss = this.style;
+
+    // 1. 배경변경
+    mycss.background = "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%";
+    // 2. 글자색
+    mycss.color = "#fff";
+    // 3. 글자그림자
+    mycss.textShadow = "0 0 5px #000";
+    // 4. 줄간격 변경
+    mycss.lineHeight = "84px";
+    // 5. 박스 확대
+    mycss.scale = "1.2";
+    // 6. 트랜지션
+    mycss.transition = "1s ease-out 1s";
+    
+    // 7. 글자 내용변경
+    this.innerText =
+    `손석구 최고 멋쨍이! 승승장구! 화이팅!!!`;
+  },
+});// SSG 객체 /////////////////////////////
+
+console.log("석구객체:",SSG);
+
+// 박스에 출력전 셋팅변경 ///
+// 대상박스 : target[3] 네번째 박스
+
+// 줄간격 2줄이니까 조정
+target[3].style.lineHeight = "40px";
+
+// 툴팁 넣기
+// 객체 호출법 2가지 : 
+// 1) 객체명.속성명
+// 2) 객체명[문자형 속성명]
+target[3].title = 
+`여기를 클릭하여 ${SSG["너의 이름은?"]}팬레터를 확인하세요!`;
+
+// 손가락모양 커서
+target[3].style.cursor = "pointer";
+
+// 출력하기
+target[3].innerHTML = `
+당신이 좋아하는 남자배우는?
+${SSG["너의 이름은?"]}
+/ 몸무게를 아세요? ${SSG.몸무게} <br>
+생년월일은?${SSG["생일"]}
+/ 대표작은? ${SSG.대표작}
+`;
+
+// 객체의 함수를 이벤트에 연결하기
+// 특히 객체의 함수를 메서드라고 부른다!
+target[3].addEventListener(`click`, SSG.팬레터);
+console.log();
+
