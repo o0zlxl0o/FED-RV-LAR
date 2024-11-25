@@ -2,12 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>플렉스 디스플레이</title>
-
-
-
-
     <style>
       /*
           [ 플렉스 디스플레이 박스 ]
@@ -90,44 +89,38 @@
       }
       /* 등분할 flex적용박스 */
       .flex-box {
-        /* 플렉스 디스플레이 df */
+        /* 플렉스 디스플레이 : df */
         display: flex;
         /* 자식요소의 기준높이 설정 */
         height: 100%;
       }
-/* 
-      .flex-box li {
-        /* 기존 float속성으로 셋팅하기 */
-      /* float: left;
-      width: 20%;
-      height: 100%;
-      } */
 
       .flex-box li {
-        /* 자식요소 플렉스 설정 : fx1*/
-        flex:1;
+        /* 자식요소 플렉스 설정 : fx1 */
+        flex: 1;
+        /* 가로,세로 크기 설정 불필요!
+          가로는 등분할, 세로는 부모크기 채움!
+
+            flex값으로 1을 쓰면 등분할됨
+            (크기는 부모박스의 크기에 반응하여
+            커지거나 작아지면서 등분할 채우기를 함!)
+
+            만약...
+            여기에 1말고 다른 숫자를 주면
+            배수의 의미가 생기게 됨
+            예컨데 하나만 2를 주면 다른 1설정된 것의
+            2배라는 의미다!
+            예) flex: 2;
+          */
+
+        /* 기존 float속성으로 셋팅하기 */
+        /* float: left;
+        width: 20%;
+        height: 100%; */
       }
 
-       /* 
-
-        가로, 세로 크기 설정 불필요!
-        가로는 등분할, 세로는 부모크기 채움!
-
-        flex값으로 1을 쓰면 등분할됨
-        (크기는 부모박스의 크기에 반응하여
-        커지거나 작아지면서 등분할 채우기를 함!
-
-        만약...
-        여기에 1말고 다른 숫자를 주면
-        배수의 의미가 생기게 됨
-        예컨데 하나만 2를 주면 다른 1설정된 것의
-        2배라는 의미다!
-        예) flex: 2;
-      */
-
-      
       /* 배경분할 박스 순서 바꾸기
-      flex하위 boder속성으로! */
+      flex하위 order속성으로! */
       .flex-box li:nth-child(1) {
         order: 3;
       }
@@ -144,57 +137,60 @@
         order: 1;
       }
 
-    
-
       /* 등분할 박스 li 개별셋팅 */
       .flex-box li:nth-child(1) {
-        background: url(./images/m01_bg.jpg) no-repeat center/cover;
+        background: url(./images/m01_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(2) {
-        background: url(./images/m02_bg.jpg) no-repeat center/cover;
+        background: url(./images/m02_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(3) {
-        background: url(./images/m03_bg.jpg) no-repeat center/cover;
+        background: url(./images/m03_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(4) {
-        background: url(./images/m04_bg.jpg) no-repeat center/cover;
+        background: url(./images/m04_bg.jpg)
+          no-repeat center/cover;
       }
       .flex-box li:nth-child(5) {
-        background: url(./images/m05_bg.jpg) no-repeat center/cover;
+        background: url(./images/m05_bg.jpg)
+          no-repeat center/cover;
       }
 
       /* 타이틀 공통 */
-      .tit{
+      .tit {
         position: absolute;
         top: 100px;
         /* 가로중앙셋팅 */
         left: 50%;
         translate: -50%;
-        
+
         width: 500px;
         height: 100px;
-        border: 5px double #ffffff;
+        border: 5px double #fff;
       }
 
       /* 타이틀 하위 li 공통 */
-      .tit > li{
+      .tit > li {
         width: 50px;
         height: 50px;
-        border: 3px solid #ffffff;
+        border: 3px solid #fff;
         /* 원 */
         border-radius: 50%;
         text-align: center;
-        font: bold 14px/50px verdana; sans-serif;
-        color: #ffffff;
+        font: bold 14px/50px Verdana;
+        color: #fff;
         background-color: red;
       }
 
-      /* 타이틀 1 */
-      .t1{
+      /* 타이틀1 */
+      .t1 {
         /* 플렉스 디스플레이 */
         display: flex;
-         
-      justify-content: space-evenly;
+
+        justify-content: space-evenly;
         /* 
         [ justify-content 속성 ]
 
@@ -229,10 +225,10 @@
             글자기준선(baseline)을 기준으로 정렬함!
             (글자의 line-height를 변경해서 적용해봄!)
         */
-      
       }
- /* 타이틀 2 */
- .t2 {
+
+      /* 타이틀 2 */
+      .t2 {
         top: 250px;
         /* 플렉스 박스 : df */
         display: flex;
@@ -265,6 +261,7 @@
         방향으로 마진을 auto처리하면
         flex박스 오른쪽 끝으로 이동시켜준다! */
       }
+
       /* 타이틀박스 4 */
       /* 오른쪽을 기준한 박스 */
       .t4 {
@@ -290,7 +287,6 @@
         /* 진행방향수직정렬 : aic */
         align-items: center;
         /* 진행방향정렬은? jcc */
-
         /* justify-content: center; */
       }
       /* 수직방향일때 3번째 li부터 끝으로 보내기 */
@@ -313,7 +309,6 @@
     강제로 줄어든 박스의 크기를
     유지해야할 경우 변경해야한다! */
       .t5 li {
-        /* fxs0 */
         flex-shrink: 0;
         /* 
         [flex-shrink 속성 ]
@@ -336,7 +331,6 @@
         justify-content: center;
         /* 진행방향수직정렬 여러줄
         align-content속성! */
-        /* acc */
         align-content: space-around;
         /* 
         [ align-content 속성 ]
@@ -360,7 +354,7 @@
       /* 마진으로 한줄에 오는
     글자를 조정하기 */
       .t6 li {
-        margin: 0 22px;
+        margin: 0px 22px;
       }
 
       /* 마진없이 플렉스 랩핑박스 줄바꿈하기! */
@@ -385,7 +379,7 @@
         /* 진행방향수직정렬(여러줄) 중앙 : acc */
         align-content: center;
       }
-     
+
       /* 줄바꿈 클래스 셋팅 */
       .t7 li.brk{
         /* width: 100%; */
@@ -414,7 +408,7 @@
       </ul>
     </div>
 
-    타이틀박스 1
+    <!-- 타이틀박스 1 -->
     <ol class="tit t1">
       <li>L</li>
       <li>O</li>
@@ -480,7 +474,7 @@
       <li>E</li>
     </ol>
 
-    타이틀박스 7
+    <!-- 타이틀박스 7 -->
     <ol class="tit t7">
       <li>L</li>
       <li>O</li>
