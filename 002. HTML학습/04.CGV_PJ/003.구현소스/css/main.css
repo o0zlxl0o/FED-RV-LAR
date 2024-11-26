@@ -258,7 +258,7 @@ body * {
 
   /* 비율설정하기 : 이때 높이값 주면 안됨!! asp*/
   aspect-ratio: 1200/788;
-  
+
   /* height: 788px; */
   /* 배경이미지 */
   background: url(../images/bg.jpg) no-repeat
@@ -288,21 +288,31 @@ body * {
 
 /* 2-2. 포스터 메뉴 */
 .poster-menu {
-  translate: -50%;
   position: absolute;
+  /* 비율유지 부모박스 기준 */
+  width: 63%;
+  /* outline: 2px dashed yellow; */
+  translate: -50%;
   bottom: -1%;
   left: 50%;
+  aspect-ratio: 4.5/1;
   /* 나의 부모는? .main-area */
 }
 /* li상위 ul 플렉스 박스 만들기 */
-.poster-menu ul{
+.poster-menu ul {
   display: flex;
+  /* 마진대신 gap으로 간격셋팅 */
+  gap: 0 1%;    
+  /* 비율유지 부모박스 높이값 채우기 */
+  height: 100%;
 }
 
 /* 메뉴 리스트 ul>li 상위 li만 선택 */
 .poster-menu ul > li {
   /* 렐러티브 포지션 : 부모자격 (.mv-info) */
   position: relative;
+  /* 플렉스 박스 자식요소 등분할(높이는 자동채움) */
+  flex: 1;
   /* 부모자격에서 넘치는 자식요소 숨기기설정!
   oh */
   overflow: hidden;
@@ -315,12 +325,15 @@ li+li 앞에 li가 있는 li선택
 즉, 첫번째 li빼고 다 선택 */
 .poster-menu ul > li + li {
   /* 왼쪽마진 : ml */
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 /* 포스터 이미지 */
 .poster-menu img {
-  height: 170px;
+  width: 100%;
+  height: 100%;
+  /* 이미지 비율로 채우기 */
+  object-fit: cover;
 }
 
 /* 영화정보박스 */
@@ -339,14 +352,14 @@ li+li 앞에 li가 있는 li선택
   /* 줄간격 : lh */
   line-height: 2;
   /* 패딩탑 : pt35 */
-  padding-top: 35px;
+  padding-top: min(3.5rem, 2.6vw);
   /* 패딩,보더 크기포함박스 : bxb */
   box-sizing: border-box;
 
   /* 글자체 */
   font-family: "Cute Font", cursive;
   /* 글자크기 */
-  font-size: 16px;
+  font-size: min(1.6rem, 1.2vw);
 
   /* 트랜지션 : trs 속시이지 */
   transition: 0.3s ease-out;
@@ -361,7 +374,7 @@ li+li 앞에 li가 있는 li선택
 /* 첫번째 제목만 큰글자 만들기 */
 .mv-info ol li:first-child {
   /* 글자크기 : fz */
-  font-size: 20px;
+  font-size: min(2rem,1.5vw);
   /* 글자 두껍게 : fwb */
   /* font-weight: bold; */
   /* 글자색 : c */
@@ -383,7 +396,7 @@ li+li 앞에 li가 있는 li선택
 /* 3-2.회사정보 */
 .co-info address {
   font-family: "cute font";
-  font-size: 1.6rem;
+  font-size: min(1.6rem, 1.2vw);
   color: #fff;
   /* 이탤릭해제 */
   font-style: normal;
