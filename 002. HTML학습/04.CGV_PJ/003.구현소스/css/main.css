@@ -24,16 +24,15 @@ body * {
 .top-area {
   /* 부모자격 : 렐러티브! por */
   position: relative;
-  
+
   height: 80px;
   /* 배경이미지 */
-  background: url(../images/curtain.jpg)
-    repeat-x;
+  background: url(../images/curtain.jpg) repeat-x;
 }
 
 /* 1-1 타이틀 */
-.tit{
-  font-family: 'Jua', sans-serif;
+.tit {
+  font-family: "Jua", sans-serif;
   font-size: 40px;
   color: #80ffff;
   text-align: center;
@@ -41,18 +40,19 @@ body * {
   /* 글자 글로우 효과 : txsh */
   text-shadow: 0 0 4px #adffff;
   /* 애니메이션:이시이지반방마 */
-  animation: tit-ani .5s ease-in infinite alternate;
+  animation: tit-ani 0.5s ease-in infinite
+    alternate;
 }
 
 /* 타이틀 애니 키프레임 */
 @keyframes tit-ani {
-  to{
-      text-shadow: 0 0 12px aquamarine;
+  to {
+    text-shadow: 0 0 12px aquamarine;
   }
 }
 
 /* 1-2 GMB 메뉴 */
-.gnb{
+.gnb {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -61,17 +61,17 @@ body * {
   /* 서브메뉴가 위로 올라오도록 위치 위로! */
 }
 /* 글자 일반세팅 */
-.gnb ul{
+.gnb ul {
   /* 플랙스 박스 df */
   display: flex;
   /* 사이간격은 gap : 로간격 컬럼간격 */
-  gap: 0 1.5rem;/* 15px */
+  gap: 0 1.5rem; /* 15px */
 
-  font-family: 'Jua', sans-serif;
+  font-family: "Jua", sans-serif;
   font-size: 2rem;
 }
 /* 리스트 옆으로 흐름 */
-.gnb ul>li{
+.gnb ul > li {
   /* 서브메뉴를 위한 부모자격 */
   position: relative;
   /* float: left; */
@@ -87,7 +87,7 @@ body * {
 } */
 
 /* 서브메뉴 */
-.smenu{
+.smenu {
   position: absolute;
   top: 35px;
   left: 50%;
@@ -101,17 +101,18 @@ body * {
   font-size: 1.7rem;
   line-height: 1.6;
   padding: 3px;
-  background: url(../images/bg_smenu.png) no-repeat center/cover;
+  background: url(../images/bg_smenu.png)
+    no-repeat center/cover;
   /* 처음에 안보임 */
   display: none;
 }
 /* 상위메뉴 오버시 서브보이기 */
-.gnb ul>li:hover .smenu{
+.gnb ul > li:hover .smenu {
   display: block;
 }
 /* 가상요소로 삼각형 만들기 */
-.smenu::before{
-  content: '';
+.smenu::before {
+  content: "";
   position: absolute;
   top: -15px;
   left: 50%;
@@ -120,63 +121,159 @@ body * {
   height: 15px;
   background-color: #303030;
   /* 클립패쓰로 자르기 */
-  clip-path: polygon(0 100%, 50% 0,100% 100%);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 /* 서브메뉴 ol */
-.smenu ol{
+.smenu ol {
   border: 1px solid #ccc;
   padding: 10px;
   white-space: nowrap;
 }
 /* 사이구분선 클래스 */
-.bd-top{
+.bd-top {
   border-top: 1px solid #ccc;
 }
 /* 서브메뉴 오버시 글자색 */
-.smenu li:hover a{
+.smenu li:hover a {
   color: red;
 }
 /* 서브메뉴 오버시 아이콘 */
-.smenu li:hover a::after{
-  content: '🧛‍♂️';
+.smenu li:hover a::after {
+  content: "🧛‍♂️";
   /* 오른쪽 끝에 위치 */
   float: right;
 }
 /* 예매 */
-.gnb ul>li:nth-child(2) 
-.smenu li:hover a::after{
-  content: '🍋';
+.gnb
+  ul
+  > li:nth-child(2)
+  .smenu
+  li:hover
+  a::after {
+  content: "🍋";
 }
 /* 극장 */
-.gnb ul>li:nth-child(3) 
-.smenu li:hover a::after{
-  content: '🌞';
+.gnb
+  ul
+  > li:nth-child(3)
+  .smenu
+  li:hover
+  a::after {
+  content: "🌞";
 }
 /* 이벤트&컬처 */
-.gnb ul>li:nth-child(4) 
-.smenu li:hover a::after{
-  content: '📣';
+.gnb
+  ul
+  > li:nth-child(4)
+  .smenu
+  li:hover
+  a::after {
+  content: "📣";
+}
+
+/* 영사기 박스 */
+.cam {
+  position: absolute;
+  top: -10px;
+  right: -65px;
+}
+/* 영사기 이미지 */
+.cam img {
+  width: 50px;
+  rotate: 30deg;
+  /* 트랜지션: trs 양방향공통*/
+  transition: 0.3s 0.3s;
+}
+/* GNB에 오버시 영사기 이미지 회전 */
+.gnb:hover .cam img {
+  rotate: 0deg;
+  /* 트랜지션 지연시간 오버시엔 없앰! */
+  transition-delay: 0s;
+}
+/* 빔박스 */
+.beam {
+  position: absolute;
+  z-index: -1;
+  /* 스테틱 이미지보다 아래 */
+  top: -17.2px;
+  right: 23px;
+  width: 0px;
+  height: 70px;
+  background: url(../images/bim.png) no-repeat
+    right/auto 100%;
+  /* 트랜지션: trs */
+  transition: 0.3s;
+
+  /* outline: 2px dashed yellow; */
+}
+/* GNB에 오버시 빔박스 보이기 */
+.gnb:hover .beam {
+  width: 200px;
+  /* 영사기 이미지 .3s 돌동안 대기하기 */
+  transition-delay: 0.3s;
+  /* 빔떨림 애니메이션 호출 */
+  animation: beam-ani 0.05s linear infinite
+    alternate;
+  /* 0.05초간 등속도(linear)로 계속(infinite) 번갈아(alternate) */
+}
+/* 빔떨림 애니 키프레임 */
+@keyframes beam-ani {
+  to {
+    opacity: 0.5;
+  }
+}
+
+/* 가상요소로 상영 스크린 추가하기 */
+.cam::after {
+  /* ct+enter */
+  content: "";
+  position: absolute;
+  /* 메뉴, 빔보다 아래 */
+  z-index: -2;
+  top: -15px;
+  right: 115px;
+
+  /* 트랜지션 대상 : opacity */
+  width: 0;
+  opacity: 0;
+
+  height: 66px;
+  background: url(../images/screen.gif) no-repeat -50%
+    center/auto 80%;
+  /* 트랜지션: trs */
+  transition: opacity 0.3s;
+}
+/* gnb 오버시 스크린 보이기 */
+.gnb:hover .cam::after {
+  width: 129px;
+  opacity: 1;
+  /* 트랜지션 딜레이 : trsde */
+  transition-delay: 0.6s;
 }
 
 /*************** 2. 메인영역 ***************/
 .main-area {
   position: relative;
   /* 부모자격 - .screen */
-  height: 788px;
+
+  /* 비율설정하기 : 이때 높이값 주면 안됨!! asp*/
+  aspect-ratio: 1200/788;
+  
+  /* height: 788px; */
   /* 배경이미지 */
-  background: url(../images/bg.jpg)
-    no-repeat center/cover;
+  background: url(../images/bg.jpg) no-repeat
+    center/cover;
 }
 
 /* 2-1.스크린 */
 .screen {
   /* 앱솔루트 포지션 : poa */
   position: absolute;
-  top: 136px;
-  left: 257px;
+  top: 17%;
+  left: 21.42%;
   /* 나의 부모는? .main-area */
-  width: 701px;
-  height: 397px;
+  width: 58.4%;
+  height: 51.5%;
   /* 기본배경색 검정! */
   background-color: #000;
 }
@@ -191,10 +288,15 @@ body * {
 
 /* 2-2. 포스터 메뉴 */
 .poster-menu {
+  translate: -50%;
   position: absolute;
-  bottom: 43px;
-  left: 226px;
+  bottom: -1%;
+  left: 50%;
   /* 나의 부모는? .main-area */
+}
+/* li상위 ul 플렉스 박스 만들기 */
+.poster-menu ul{
+  display: flex;
 }
 
 /* 메뉴 리스트 ul>li 상위 li만 선택 */
@@ -204,8 +306,8 @@ body * {
   /* 부모자격에서 넘치는 자식요소 숨기기설정!
   oh */
   overflow: hidden;
-  /* 블록 옆으로 흐르게 : float */
-  float: left;
+  /* 블록 옆으로 흐르게 : float 사용안함! */
+  /* float: left; */
 }
 
 /* ul>li 사이간격 
@@ -247,13 +349,13 @@ li+li 앞에 li가 있는 li선택
   font-size: 16px;
 
   /* 트랜지션 : trs 속시이지 */
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 /* 상위 ul>li 오버시 영화정보 보이기 */
-.poster-menu ul>li:hover .mv-info{
-    top: 0;
-    /* 값이 100% -> 0으로 변경됨! */
+.poster-menu ul > li:hover .mv-info {
+  top: 0;
+  /* 값이 100% -> 0으로 변경됨! */
 }
 
 /* 첫번째 제목만 큰글자 만들기 */
@@ -267,7 +369,7 @@ li+li 앞에 li가 있는 li선택
 }
 
 /*************** 3. 하단영역 ***************/
-.footer-area{
+.footer-area {
   /* 플렉스 박스 */
   display: flex;
   /* 진행방향 수직정렬(한줄) */
@@ -279,26 +381,25 @@ li+li 앞에 li가 있는 li선택
 }
 /* 3-1.하단로고 */
 /* 3-2.회사정보 */
-.co-info address{
-  font-family: 'cute font';
+.co-info address {
+  font-family: "cute font";
   font-size: 1.6rem;
   color: #fff;
   /* 이탤릭해제 */
   font-style: normal;
 }
 /* 3-3.SNS */
-.sns-box{
+.sns-box {
   /* 플렉스 자식에서 왼쪽마진을
   auto로 주면 오른쪽 끝으로 이동함 */
   margin-left: auto;
 }
-.sns-box ol{
+.sns-box ol {
   /* 플렉스박스 */
   display: flex;
   gap: 0 10px;
 }
-.sns-box a{
+.sns-box a {
   font-size: 4rem;
   color: #fff;
 }
-
