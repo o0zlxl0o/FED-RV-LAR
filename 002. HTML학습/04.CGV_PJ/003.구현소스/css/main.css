@@ -22,72 +22,71 @@ body * {
 
 /*************** 1. 상단영역 ***************/
 .top-area {
-  /* 부모자격 : 렐러티브! por */
+  /* 부모자격 렐러티브! */
   position: relative;
 
   height: 80px;
   /* 배경이미지 */
-  background: url(../images/curtain.jpg) repeat-x;
+  background: url(../images/curtain.jpg)
+    repeat-x;
 }
-
-/* 1-1 타이틀 */
-.tit {
-  font-family: "Jua", sans-serif;
+/* 1-1.타이틀 */
+.tit{
+  font-family: 'Jua', sans-serif;
   font-size: 40px;
-  color: #80ffff;
+  color: aquamarine;
   text-align: center;
   line-height: 80px;
-  /* 글자 글로우 효과 : txsh */
-  text-shadow: 0 0 4px #adffff;
-  /* 애니메이션:이시이지반방마 */
-  animation: tit-ani 0.5s ease-in infinite
-    alternate;
+  /* 글자 글로우 효과 */
+  text-shadow: 0 0 4px aquamarine;
+  /* 애니메이션: 이시이지반방마 */
+  animation: tit-ani .5s ease-in infinite alternate;
 }
 
 /* 타이틀 애니 키프레임 */
 @keyframes tit-ani {
-  to {
-    text-shadow: 0 0 12px aquamarine;
+  to{
+      text-shadow: 0 0 12px aquamarine;
   }
 }
 
-/* 1-2 GMB 메뉴 */
-.gnb {
+/* 1-2.GNB 메뉴 */
+.gnb{
   position: absolute;
   bottom: 10px;
   right: 10px;
-  /* 부모누구? .top-area */
+  /* 부모는? .top-area */
   z-index: 999;
   /* 서브메뉴가 위로 올라오도록 위치 위로! */
 }
-/* 글자 일반세팅 */
-.gnb ul {
-  /* 플랙스 박스 df */
+/* 글자일반 셋팅 */
+.gnb ul{
+  /* 플렉스 박스 */
   display: flex;
   /* 사이간격은 gap : 로간격 컬럼간격 */
-  gap: 0 1.5rem; /* 15px */
+  gap: 0 1.5rem;
 
-  font-family: "Jua", sans-serif;
+  font-family: 'Jua', sans-serif;
   font-size: 2rem;
 }
 /* 리스트 옆으로 흐름 */
-.gnb ul > li {
+.gnb ul>li{
   /* 서브메뉴를 위한 부모자격 */
   position: relative;
   /* float: left; */
   padding-bottom: 1rem;
-  /* 하단부분 서브메뉴와 연결되게 
+  /* 하단부분 서브메뉴와 연결되게
   간격만들고 조정함! 이벤트가 끊김! */
 }
-/* 리스트 사이간격 */
-/* li+li 두번째 li부터 선택 
--> 플렉스박스일 경우 gqp속성으로 셋팅함*/
+/* 리스트 사이간격
+li+li 두번째 li부터 선택
+-> 플렉스박스일 경우 gap속성으로 셋팅함 */
 /* .gnb ul>li+li{
   margin-left: 20px;
 } */
 
 /* 서브메뉴 */
-.smenu {
+.smenu{
   position: absolute;
   top: 35px;
   left: 50%;
@@ -101,18 +100,17 @@ body * {
   font-size: 1.7rem;
   line-height: 1.6;
   padding: 3px;
-  background: url(../images/bg_smenu.png)
-    no-repeat center/cover;
+  background: url(../images/bg_smenu.png) no-repeat center/cover;
   /* 처음에 안보임 */
   display: none;
 }
 /* 상위메뉴 오버시 서브보이기 */
-.gnb ul > li:hover .smenu {
+.gnb ul>li:hover .smenu{
   display: block;
 }
 /* 가상요소로 삼각형 만들기 */
-.smenu::before {
-  content: "";
+.smenu::before{
+  content: '';
   position: absolute;
   top: -15px;
   left: 50%;
@@ -121,163 +119,146 @@ body * {
   height: 15px;
   background-color: #303030;
   /* 클립패쓰로 자르기 */
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  clip-path: polygon(0 100%, 50% 0,100% 100%);
 }
 /* 서브메뉴 ol */
-.smenu ol {
+.smenu ol{
   border: 1px solid #ccc;
   padding: 10px;
   white-space: nowrap;
 }
 /* 사이구분선 클래스 */
-.bd-top {
+.bd-top{
   border-top: 1px solid #ccc;
 }
 /* 서브메뉴 오버시 글자색 */
-.smenu li:hover a {
+.smenu li:hover a{
   color: red;
 }
 /* 서브메뉴 오버시 아이콘 */
-.smenu li:hover a::after {
-  content: "🧛‍♂️";
+.smenu li:hover a::after{
+  content: '🧛‍♂️';
   /* 오른쪽 끝에 위치 */
   float: right;
 }
 /* 예매 */
-.gnb
-  ul
-  > li:nth-child(2)
-  .smenu
-  li:hover
-  a::after {
-  content: "🍋";
+.gnb ul>li:nth-child(2) 
+.smenu li:hover a::after{
+  content: '🍋';
 }
 /* 극장 */
-.gnb
-  ul
-  > li:nth-child(3)
-  .smenu
-  li:hover
-  a::after {
-  content: "🌞";
+.gnb ul>li:nth-child(3) 
+.smenu li:hover a::after{
+  content: '🌞';
 }
 /* 이벤트&컬처 */
-.gnb
-  ul
-  > li:nth-child(4)
-  .smenu
-  li:hover
-  a::after {
-  content: "📣";
+.gnb ul>li:nth-child(4) 
+.smenu li:hover a::after{
+  content: '📣';
 }
 
 /* 영사기 박스 */
-.cam {
+.cam{
   position: absolute;
   top: -10px;
   right: -65px;
 }
 /* 영사기 이미지 */
-.cam img {
+.cam img{
   width: 50px;
   rotate: 30deg;
-  /* 트랜지션: trs 양방향공통*/
-  transition: 0.3s 0.3s;
+  /* 트랜지션: trs 양방향공통 */
+  transition: .3s .3s;
 }
 /* GNB에 오버시 영사기 이미지 회전 */
-.gnb:hover .cam img {
+.gnb:hover .cam img{
   rotate: 0deg;
   /* 트랜지션 지연시간 오버시엔 없앰! */
   transition-delay: 0s;
 }
 /* 빔박스 */
-.beam {
+.beam{
   position: absolute;
   z-index: -1;
   /* 스테틱 이미지보다 아래 */
-  top: -17.2px;
-  right: 23px;
+  top: -16px;
+  right: 9px;
   width: 0px;
   height: 70px;
-  background: url(../images/bim.png) no-repeat
-    right/auto 100%;
+  background: url(../images/bim.png) no-repeat right/auto 100%;
   /* 트랜지션: trs */
-  transition: 0.3s;
+  transition: .3s;
 
   /* outline: 2px dashed yellow; */
 }
 /* GNB에 오버시 빔박스 보이기 */
-.gnb:hover .beam {
+.gnb:hover .beam{
   width: 200px;
   /* 영사기 이미지 .3s 돌동안 대기하기 */
-  transition-delay: 0.3s;
+  transition-delay: .3s;
   /* 빔떨림 애니메이션 호출 */
-  animation: beam-ani 0.05s linear infinite
-    alternate;
+  animation: beam-ani .05s linear infinite alternate;
   /* 0.05초간 등속도(linear)로 계속(infinite) 번갈아(alternate) */
 }
 /* 빔떨림 애니 키프레임 */
 @keyframes beam-ani {
-  to {
+  to{
     opacity: 0.5;
   }
 }
 
-/* 가상요소로 상영 스크린 추가하기 */
-.cam::after {
-  /* ct+enter */
-  content: "";
+/* 가상요소로 상영스크린 만들기 */
+.cam::after{
+  content: '';
   position: absolute;
-  /* 메뉴, 빔보다 아래 */
+  /* 메뉴,빔보다 아래 */
   z-index: -2;
-  top: -15px;
-  right: 115px;
 
-  /* 트랜지션 대상 : opacity */
+  top: -15px;
+  right: 120px;
+  /* 트랜지션 대상: opacity */
   width: 0;
   opacity: 0;
 
   height: 66px;
-  background: url(../images/screen.gif) no-repeat -50%
-    center/auto 80%;
-  /* 트랜지션: trs */
-  transition: opacity 0.3s;
+  background: url(../images/screen.gif) no-repeat -50% center/auto 80%;
+  /* 트랜지션 */
+  transition: opacity .3s;
 }
-/* gnb 오버시 스크린 보이기 */
-.gnb:hover .cam::after {
+/* GNB오버시 스크린 보이기 */
+.gnb:hover .cam::after{
   width: 129px;
   opacity: 1;
-  /* 트랜지션 딜레이 : trsde */
-  transition-delay: 0.6s;
+  /* 트랜지션 딜레이 */
+  transition-delay: .6s;
 }
+
 
 /*************** 2. 메인영역 ***************/
 .main-area {
   position: relative;
   /* 부모자격 - .screen */
 
-  /* 비율설정하기 : 이때 높이값 주면 안됨!! asp*/
-  aspect-ratio: 1200/788;
+  /* 비율설정하기 : 이때 높이값 주면 안됨!!! */
+  aspect-ratio: 1200 / 788;
 
   /* height: 788px; */
   /* 배경이미지 */
-  background: url(../images/bg.jpg) no-repeat
-    center/cover;
+  background: url(../images/bg.jpg)
+    no-repeat center/cover;
 }
-
 /* 2-1.스크린 */
 .screen {
   /* 앱솔루트 포지션 : poa */
   position: absolute;
-  top: 17%;
-  left: 21.42%;
+  top: 17.2%;
+  left: 21.3%;
   /* 나의 부모는? .main-area */
-  width: 58.4%;
-  height: 51.5%;
+  width: 58.6%;
+  height: 50.6%;
   /* 기본배경색 검정! */
   background-color: #000;
 }
-
 /* 유튜브 아이프레임 */
 .screen iframe#ifr {
   width: 100%;
@@ -289,44 +270,68 @@ body * {
 /* 2-2. 포스터 메뉴 */
 .poster-menu {
   position: absolute;
-  /* 비율유지 부모박스 기준 */
+  /* 비율유지 부모박스 기준 % */
   width: 63%;
-  /* outline: 2px dashed yellow; */
-  translate: -50%;
-  bottom: -1%;
-  left: 50%;
   aspect-ratio: 4.5/1;
+  /* outline: 2px dashed yellow; */
+  bottom: 3.5%;
+  left: 50%;
   /* 나의 부모는? .main-area */
+  translate: -50%;
 }
-/* li상위 ul 플렉스 박스 만들기 */
+/* li상위 ul 플렉스박스 만들기 */
 .poster-menu ul {
   display: flex;
   /* 마진대신 gap으로 간격셋팅 */
-  gap: 0 1%;    
+  gap: 0 1%;
   /* 비율유지 부모박스 높이값 채우기 */
   height: 100%;
+  /* 직계자식요소를 3D원근 설정하기 */
+  perspective: 100vh;
 }
 
 /* 메뉴 리스트 ul>li 상위 li만 선택 */
 .poster-menu ul > li {
   /* 렐러티브 포지션 : 부모자격 (.mv-info) */
   position: relative;
-  /* 플렉스 박스 자식요소 등분할(높이는 자동채움) */
+  /* 플렉스박스 자식요소 등분할(높이는 자동채움) */
   flex: 1;
-  /* 부모자격에서 넘치는 자식요소 숨기기설정!
-  oh */
+  /* 부모자격에서 넘치는 
+  자식요소 숨기기설정! oh */
   overflow: hidden;
   /* 블록 옆으로 흐르게 : float 사용안함! */
   /* float: left; */
+
+  /* x축 회전하여 누워있게 셋팅 */
+  rotate: x 45deg;
+  /* 원래속성 transform: rotateX(45deg); */
+
+  /* 회전축 변경하기 : bottom */
+  transform-origin: bottom;
+
+  /* 트랜지션: trs 속시이지 */
+  transition: rotate .4s ease-out;
+
+}
+/* li에 오버시 x축회전하여 일어나기
++ li의 클래스가 "on"일 경우 동일 디자인 */
+.poster-menu ul > li:hover,
+.poster-menu ul > li.on {
+  /* x축 0도 회전 */
+  rotate: x 0deg;
+  /* 다른 li보다 위 */
+  z-index: 1;
+  /* 선택요소 외곽선 보이기 */
+  outline: 1px solid aquamarine;
 }
 
 /* ul>li 사이간격 
 li+li 앞에 li가 있는 li선택
 즉, 첫번째 li빼고 다 선택 */
-.poster-menu ul > li + li {
-  /* 왼쪽마진 : ml */
-  /* margin-left: 10px; */
-}
+/* 왼쪽마진 : ml */
+/* .poster-menu ul > li + li {
+  margin-left: 10px;
+} */
 
 /* 포스터 이미지 */
 .poster-menu img {
@@ -352,23 +357,25 @@ li+li 앞에 li가 있는 li선택
   /* 줄간격 : lh */
   line-height: 2;
   /* 패딩탑 : pt35 */
-  padding-top: min(3.5rem, 2.6vw);
+  padding-top: min(3.5rem,2.6vw);
   /* 패딩,보더 크기포함박스 : bxb */
   box-sizing: border-box;
 
   /* 글자체 */
   font-family: "Cute Font", cursive;
   /* 글자크기 */
-  font-size: min(1.6rem, 1.2vw);
+  font-size: min(1.6rem,1.2vw);
 
   /* 트랜지션 : trs 속시이지 */
-  transition: 0.3s ease-out;
+  transition: .3s ease-out;
 }
 
-/* 상위 ul>li 오버시 영화정보 보이기 */
-.poster-menu ul > li:hover .mv-info {
-  top: 0;
-  /* 값이 100% -> 0으로 변경됨! */
+/* 상위 ul>li 오버시 영화정보 보이기
++ li가 클래스"on"일 경우도 동일 디자인! */
+.poster-menu ul>li:hover .mv-info,
+.poster-menu ul>li.on .mv-info{
+    top: 0;
+    /* 값이 100% -> 0으로 변경됨! */
 }
 
 /* 첫번째 제목만 큰글자 만들기 */
@@ -382,7 +389,7 @@ li+li 앞에 li가 있는 li선택
 }
 
 /*************** 3. 하단영역 ***************/
-.footer-area {
+.footer-area{
   /* 플렉스 박스 */
   display: flex;
   /* 진행방향 수직정렬(한줄) */
@@ -394,25 +401,26 @@ li+li 앞에 li가 있는 li선택
 }
 /* 3-1.하단로고 */
 /* 3-2.회사정보 */
-.co-info address {
-  font-family: "cute font";
-  font-size: min(1.6rem, 1.2vw);
+.co-info address{
+  font-family: 'cute font';
+  font-size: 1.6rem;
   color: #fff;
   /* 이탤릭해제 */
   font-style: normal;
 }
 /* 3-3.SNS */
-.sns-box {
+.sns-box{
   /* 플렉스 자식에서 왼쪽마진을
   auto로 주면 오른쪽 끝으로 이동함 */
   margin-left: auto;
 }
-.sns-box ol {
+.sns-box ol{
   /* 플렉스박스 */
   display: flex;
   gap: 0 10px;
 }
-.sns-box a {
+.sns-box a{
   font-size: 4rem;
   color: #fff;
 }
+
