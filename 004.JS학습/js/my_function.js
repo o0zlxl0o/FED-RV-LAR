@@ -1,7 +1,7 @@
 // 나의 함수 객체 //////
 const myFn = {
     // 요소 선택함수
-    qs: (x) => document.querySelector(x),
+    qs: (x) => {return document.querySelector(x)},
     qsEl: (el, x) => el.querySelector(x),
     qsa: (x) => document.querySelectorAll(x),
     qsaEl: (el, x) => el.querySelectorAll(x),
