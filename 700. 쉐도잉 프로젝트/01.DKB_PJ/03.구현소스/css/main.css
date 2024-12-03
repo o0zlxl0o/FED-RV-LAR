@@ -14,11 +14,11 @@ body * {
 }
 
 /* 임시 높이 */
-.main-area .inbox{
+.main-area .inbox {
   height: 500px;
 }
 /* 임시 타이틀 */
-h2.temp{
+h2.temp {
   position: absolute;
   left: 0;
   width: 100%;
@@ -34,10 +34,10 @@ h2.temp{
 /* 배너 영역 : 중앙영역(인디케이터)
 -> 배너와 겹쳐지게 앱솔루트로 구성함! */
 /* 배너 겉박스 부모자격 필요! */
-#ban-area{
+#ban-area {
   position: relative;
 }
-.main-area .ban-area{
+.main-area .ban-area {
   position: absolute;
   top: 0;
   /* 나의 부모는? #ban-area */
@@ -51,25 +51,25 @@ h2.temp{
   height: 530px;
 }
 /* 배너 슬라이드박스 */
-.ban-box{
+.ban-box {
   height: 530px;
   /* 넘치는 자식요소 숨기기 */
   overflow: hidden;
 }
 /* 슬라이드 플렉스박스 */
-.ban-box ul{
+.ban-box ul {
   display: flex;
   /* 부모박스의 3배(슬라이드 3장) */
   width: 300%;
   height: 100%;
 }
 /* 슬라이드 플렉스 자식요소 */
-.ban-box ul li{
+.ban-box ul li {
   /* 등분할 플렉스: 높이는 자동100% */
   flex: 1;
 }
 /* 슬라이드 이미지 */
-.ban-box ul li img{
+.ban-box ul li img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -78,8 +78,89 @@ h2.temp{
 }
 
 /********** 3. 캐릭터소개영역 **********/
-.main-area .cat-area{
+.main-area .cat-area {
   /* 비율적용을 위해 높이값을 없앤다! */
   height: auto;
-  aspect-ratio: calc(328*4)/186;
+  aspect-ratio: 1320/190;
+}
+/* 캐릭터 박스 */
+.cat-box {
+  /* 플랙스 박스 */
+  display: flex;
+  /* 사이간격 */
+  gap: 1%;
+}
+/* 직계자식요소 div */
+.cat-box > div {
+  /* 플랙스 자식 등분할설정 */
+  flex: 1;
+}
+/* 캐릭터 이미지박스 */
+.cat-box figure {
+  /* 트랜지션 */
+  transition: 0.4s ease-out;
+}
+/* 캐릭터 각 박스 오버시 캐릭터 박스 마진탑 올리기 */
+.cat-box > div:hover figure {
+  margin-top: -250px;
+}
+/* 캐릭터 이미지만 선택 */
+.cat-box figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 캐릭터 이름 이미지 박스 */
+.cat-box figcaption {
+  text-align: center;
+}
+/* 이름이미지 공통 */
+.cat-box figcaption img {
+  margin-top: -20%;
+  width: 35%;
+}
+/* 첫번째 이름 이미지 처음에 안보임 */
+.cat-box figcaption img:first-child {
+  display: none;
+}
+/* 캐릭터 개별 박스에 오버 시 이름변경
+-> 첫번째 보이고 두번째 숨기기 */
+.cat-box > div:hover figcaption img:first-child {
+  display: inline;
+}
+.cat-box > div:hover figcaption img:last-child {
+  display: none;
+}
+
+/* 캐릭터 설명박스 */
+.cat-box aside {
+  height: 0;
+  /* 지정된 박스보다 커지면 스크롤생김 */
+  overflow: auto;
+  /* 배경 */
+  background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+  /* 트랜지션 */
+  transition: 0.4s ease-out;
+}
+/* 각 캐릭터 박스에 오버시 설명박스 보이기 */
+.cat-box > div:hover aside {
+  height: 250px;
+}
+/* 캐릭터 타이틀 */
+.cat-box aside h3 {
+  font-family: "Gugi";
+  font-size: 2.4rem;
+  font-weight: normal;
+  padding: 1.5rem 1rem 0.5rem;
+  /* 자간 letter-spacing */
+  letter-spacing: -1pt;
+}
+/* 캐릭터 설명 */
+.cat-box aside p {
+  font-family: "Single Day";
+  font-size: 1.8rem;
+  padding: 1.5rem;
+  line-height: 1.6;
+  /* 양쪽정렬 justify */
+  text-align: justify;
 }
