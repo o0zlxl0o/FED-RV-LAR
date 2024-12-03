@@ -74,7 +74,7 @@ ul::after,ol::after,.clb::after{
 }
 /* 서브메뉴 */
 .smenu{
-    position: absolute;
+    /* position: absolute; */
     left: 50%;
     /* x축 중앙이동 */
     transform: translateX(-50%);
@@ -104,7 +104,7 @@ ul::after,ol::after,.clb::after{
 }
 /* 상위li오버시 서브메뉴 보이기 */
 .gnb ul>li:hover .smenu{
-    max-height: 210px;
+    max-height: 300px;
     /* max-height로 셋팅하는 원리:
     최대높이값은 컨텐츠내용이 적을때 auto하게
     내용물 만큼만 높이값이 셋팅된다!
